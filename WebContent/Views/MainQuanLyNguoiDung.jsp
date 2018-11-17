@@ -20,24 +20,25 @@
                                     <div class="modal-content">
                                         <!-- Modal Header -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Thêm Lịch Chiếu</h4>
+                                            <h4 class="modal-title">Thêm Người Dùng</h4>
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                         <!-- Modal body -->
                                         <div class="modal-body">
                                             <form class="add-new-post">
-                                                <input class="form-control form-control-lg mb-3" type="text" placeholder="UserName" name="titleFlim">
-                                                <input class="form-control form-control-lg mb-3" type="time" placeholder="PassWord" name="titleFlim">
-                                                <input class="form-control form-control-lg mb-3" type="time" placeholder="Nhập Lại PassWord" name="titleFlim">
+                                                <input class="form-control form-control-lg mb-3" type="text" placeholder="UserName" name="userName">
+                                                <input class="form-control form-control-lg mb-3" type="password" placeholder="PassWord" name="passWord" id="pass_reg">
+                                                <input class="form-control form-control-lg mb-3" type="password" placeholder="Nhập Lại PassWord" id="pass_check">
+                                                <p id="message"></p>
                                                 <div class="row justify-content-center">
                                                    <div class="col-md-3  form-check ">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                    <input class="form-check-input" type="checkbox" name="roleName" value="ad" id="defaultCheck1">
                                                     <label class="form-check-label" for="defaultCheck1">
                                                         Chức Vụ Admin
                                                     </label>
                                                 </div>
                                                  <div class="col-md-3   form-check ">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                                    <input class="form-check-input" type="checkbox" name="roleName" value="cu" id="defaultCheck2">
                                                     <label class="form-check-label" for="defaultCheck2">
                                                         Chức Vụ User
                                                     </label>
@@ -48,7 +49,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button class="btn btn-primary float-right">Thêm Tài Khoản</button>
+                                            <button class="btn btn-primary float-right" id="btnAddAccount">Thêm Tài Khoản</button>
                                         </div>
                                     </div>
                                 </div>
@@ -90,4 +91,60 @@
                         </div>
                     </div>
                 </div>
+              <script>
+$(document).ready(function() {
+
+    //check kí tự nhập vào của xác thực mật khẩu
+    $("#pass_check").keyup(function(event) {
+        var a = $("#pass_reg").val();
+        var b = $("#pass_check").val();
+        if (a == b) {
+            $("#message").css("color", "GreenYellow");
+            $('#message').text('Sẵn sàng');
+        } else {
+            $("#message").css("color", "red");
+            $('#message').text('Mật khẩu vừa nhập không đúng');
+        }
+    });
+    //getRoleNam
+
+    var roleName="";
+    $('[name="roleName"]').change(function() {
+        if ($(this).is(':checked')) {
+            // Do something...
+          roleName =$(this).val();
+        } 
+    });
+    //ajax 
+        $("#btnAddAccount").click(function(event) {
+        	  var userName=$('[name="userName"]').val();
+              var pass=$('[name="passWord"]').val();
+        	  if(roleName!=""&&userName!=null&&pass!=null)
+        	    {
+        		  $.ajax({
+                      url: '${pageContext.request.contextPath}/AddUserServlet',
+                      type: 'POST',
+                      data: { userName: userName,passWord:pass,roleName:roleName},
+                      dataType:"html",
+                      success:function(data){
+                          $("#message").css("color","GreenYellow");
+                          $('#message').text(data);
+                      }
+                  });
+        	    }
+        	  else
+        	    {
+        	        alert("Vui lòng chọn chức vụ")
+        	    }
+        /* Act on the event */
+      
+            
+
+    });
+    
+   
+    
+
+})
+</script>
            

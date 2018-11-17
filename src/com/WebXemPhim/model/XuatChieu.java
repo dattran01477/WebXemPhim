@@ -5,44 +5,67 @@ import java.sql.Time;
 
 public class XuatChieu {
 
-	private int id;
-	private int id_Phim;
-	private boolean isDangChieu;
-	private int id_RapChieu;
-	private Time thoiGianChieu;
 	public int getId() {
 		return id;
 	}
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
 	public int getId_Phim() {
 		return id_Phim;
 	}
+
+
 	public void setId_Phim(int id_Phim) {
 		this.id_Phim = id_Phim;
 	}
-	public boolean isDangChieu() {
-		return isDangChieu;
+
+
+	public int getId_PhongChieu() {
+		return id_PhongChieu;
 	}
-	public void setDangChieu(boolean isDangChieu) {
-		this.isDangChieu = isDangChieu;
+
+
+	public void setId_PhongChieu(int id_PhongChieu) {
+		this.id_PhongChieu = id_PhongChieu;
 	}
-	public int getId_RapChieu() {
-		return id_RapChieu;
+
+
+	public Time getGioChieu() {
+		return gioChieu;
 	}
-	public void setId_RapChieu(int id_RapChieu) {
-		this.id_RapChieu = id_RapChieu;
+
+
+	public void setGioChieu(Time gioChieu) {
+		this.gioChieu = gioChieu;
 	}
-	public Time getThoiGianChieu() {
-		return thoiGianChieu;
-	}
-	public void setThoiGianChieu(Time thoiGianChieu) {
-		this.thoiGianChieu = thoiGianChieu;
-	}
+
+
+	private int id;
+	private int id_Phim;
+
+	private int id_PhongChieu;
+	private Time gioChieu;
+	
+	private int soChoNgoiTrong;
+	
 	
 	public XuatChieu() {
 		// TODO Auto-generated constructor stub
+	}
+
+
+	public int getSoChoNgoiTrong() {
+		return soChoNgoiTrong;
+	}
+
+
+	public void setSoChoNgoiTrong(int soChoNgoiTrong) {
+		this.soChoNgoiTrong = soChoNgoiTrong;
 	}
 
 }

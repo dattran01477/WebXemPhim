@@ -4,13 +4,57 @@ public class Film {
 
 	
 	private String tieuDe;
+	private int doTuoi;
+	private double diemDanhGia;
+	public int getDoTuoi() {
+		return doTuoi;
+	}
+	public void setDoTuoi(int doTuoi) {
+		this.doTuoi = doTuoi;
+	}
+	public double getDiemDanhGia() {
+		return diemDanhGia;
+	}
+	public void setDiemDanhGia(double diemDanhGia) {
+		this.diemDanhGia = diemDanhGia;
+	}
+
 	private int id;
 	private String daoDien;
 	private String dienVien;
 	private int id_TrangThai;
 	private String moTa;
+	public String getUrlTrailer() {
+		return urlTrailer;
+	}
+	public void setUrlTrailer(String urlTrailer) {
+		this.urlTrailer = urlTrailer;
+	}
+	public int getGiaVe() {
+		return giaVe;
+	}
+	public void setGiaVe(int giaVe) {
+		this.giaVe = giaVe;
+	}
+	public int getId_DanhMucPhim() {
+		return id_DanhMucPhim;
+	}
+	public void setId_DanhMucPhim(int id_DanhMucPhim) {
+		this.id_DanhMucPhim = id_DanhMucPhim;
+	}
+	public String getUrl_Image() {
+		return url_Image;
+	}
+	public void setUrl_Image(String url_Image) {
+		this.url_Image = url_Image;
+	}
+
+	private String urlTrailer;
 	private int doDai;
-	private int quocGia;
+	private String quocGia;
+	private int giaVe;
+	private int id_DanhMucPhim;
+	private String url_Image;
 	public String getTieuDe() {
 		return tieuDe;
 	}
@@ -47,10 +91,10 @@ public class Film {
 	public void setDoDai(int doDai) {
 		this.doDai = doDai;
 	}
-	public int getQuocGia() {
+	public String getQuocGia() {
 		return quocGia;
 	}
-	public void setQuocGia(int quocGia) {
+	public void setQuocGia(String quocGia) {
 		this.quocGia = quocGia;
 	}
 	public int getId() {

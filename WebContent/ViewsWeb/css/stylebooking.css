@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+
+/*------------------Seat Selection Stylings--------------------------*/
+#D_Movies{width:100%;background-image:url('../Images/Background.png');background-repeat:no-repeat;background-size:100% 235px;background-position:100% 100%;overflow:hidden;margin:0 0 10px 0;}
+
+.d td,.d p{color:#fff;/*font-family:Open Sans;*/}
+#D_Movies #chng_icon{border:0;float:right;background:#84413b url('../Images/Change_Icon.png') no-repeat 10px center;border-radius:5px;text-align:center;padding:10px 15px 10px 15px; cursor:pointer;/*margin:35px 0 0 0;*/}
+#D_Movies #chng_icon a{text-decoration:none;display:block;color:#d4bab9;/*font-family:"Open Sans";*/font-size:14px;padding: 0 0 0 15px;}
+
+#seats_selection{width:100%;}
+#seats{margin: 0 auto;text-align: center;position:relative;}
+#seats p{font-family:"Open Sans";font-size:18px;color:#818181;text-align:center;text-transform:uppercase;border-bottom:1px dotted #818181;padding:0 0 10px 0;}
+#seats #er{width:100%;background-color:#f0db98;padding:10px 0 10px 0;text-align:center;height:50px;}
+#seats #er p{font-size:12px;/*font-family:"Open Sans";*/color:#7a766d;border:0;}
+#seats #er table,#seats #seat_type table,#seats #seat_num table{margin: 0 auto;}
+
+/*#seats #seat_type{width:100%;padding:10px 0 10px 0;text-align:center;height:50px;}
+#seats #seat_type td{color:#333;font-size:12px;padding: 0 0 0 10px;}*/
+
+#seats #seat_type{/*width:20%;padding:10px 0 10px 0;text-align:left;height:50px;position:absolute;left:840px;top:70px;*/}
+#seats #seat_type td{color:#333;/*font-family:"Open Sans";*/font-size:12px;padding: 0 0 10px 0px;}
+
+#seats #seat_num{width:100%;padding:10px 0 10px 25px;overflow-x:auto; overflow-y:hidden;}
+#seats #seat_num td{cursor:pointer;}
+#seats #seat_num p{border:0;font-size:12px;margin:0;}
+
+/*#seats #select_num_seats {position: absolute;top: 50px;left:345px;cursor:pointer;width:30%;}*/ /*top: 181px;*/
+/*.unselected {position: relative;top: -271px;left:355px;cursor:pointer;width:30%;}
+#seats #select_num_seats .seat_icon{position: relative;left: -120px;top: 29px;z-index: 3;}*/
+
+/*over lay */
+#overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #000;filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity: 0.7;opacity: 0.7;z-index: 100;display: none;}
+
+
+
+
+
+		
+/* added styles on nov 25*/		
+
+.show_timings ul li {background: none repeat scroll 0 0 #d5f3bb;border-radius: 4px;font-size: 13px;padding: 4px 6px;}
+/*.City_Center{
+	background: url('/images/city-centre-logo.png') no-repeat 30px 2px;
+    padding-left:80px;
+    padding-top: 10px;
+}
+.Villagio
+{
+	background: url('/images/villaggio-logo.png') no-repeat 0px 2px;
+    padding-left: 50px;
+    padding-top: 10px;
+}
+
+.Landmark
+{
+	background: url('/images/landmark-logo.png') no-repeat 35px 2px;
+	padding-left: 85px;
+    padding-top: 10px;
+}
+
+.The_Mall
+{
+	background: url('/images/The-Mall-Logo.png') no-repeat 0px 2px;
+	padding-left: 50px;
+    padding-top: 10px;
+}
+
+.Royal_Plaza
+{
+    background: url('/images/Royal_Plaza_Logo_47x47.png') no-repeat 35px 2px;
+	  padding-left: 85px;
+    padding-top: 10px;
+    }
+.West_End
+{
+	background: url('/images/Cinemax_47x47.png') no-repeat 0px 2px;
+	  padding-left: 50px;
+    padding-top: 10px;
+}*/
+#select_num_seats .wrapper-dropdown-2 span img{margin-right:8px;}
+#select_num_seats .wrapper-dropdown-2 {position: relative;width: 50px; border:1px solid #ddd; padding: 6px 21px 8px 0;color:#333;border-radius: 5px;cursor: pointer;   outline: none; margin:0px auto; margin-bottom:8px;}
+#select_num_seats .wrapper-dropdown-2:after {content: "";width: 0;height: 0;position: absolute;right: 13px;top: 50%;margin-top: -3px;border-width: 6px 6px 0 6px;    border-style: solid;border-color: #333 transparent;}
+#select_num_seats .wrapper-dropdown-2 .dropdown2 {position: absolute;top: 25px;left: 0px;right: 0px;background: white;-webkit-transition: all 0.3s ease-out;    -moz-transition: all 0.3s ease-out;-ms-transition: all 0.3s ease-out;-o-transition: all 0.3s ease-out;transition: all 0.3s ease-out;list-style: none;width:50px;opacity: 0;pointer-events: none;z-index: 999999 ! important;padding:10px;border-radius: 5px;border:3px solid #cccccc;}
+#select_num_seats .wrapper-dropdown-2 .dropdown2 li{border-bottom:1px solid #cccccc;}
+#select_num_seats .wrapper-dropdown-2 .dropdown2 li:last-child{border:0;}
+#select_num_seats .wrapper-dropdown-2 .dropdown2 li a {display: block;text-decoration: none;color: #333;padding: 5px 0px!important;font-size:14px;/*font-family: Open Sans;*/-webkit-transition: all 0.3s ease-out;-moz-transition: all 0.3s ease-out;-ms-transition: all 0.3s ease-out;-o-transition: all 0.3s ease-out;    transition: all 0.3s ease-out;/*font-family: Open Sans;*/ width:25px;}
+#select_num_seats .wrapper-dropdown-2 .dropdown2 li i {margin-right: 5px;color: inherit;vertical-align: middle;}
+#select_num_seats .wrapper-dropdown-2 .dropdown2 li:hover a {color: grey;}
+#select_num_seats .wrapper-dropdown-2.active:after {border-width: 0 6px 6px 6px;}
+#select_num_seats .wrapper-dropdown-2.active .dropdown2 {opacity: 1;pointer-events: auto;}
+
+ No CSS3 support 
+.no-opacity       #select_num_seats .wrapper-dropdown-2 .dropdown2,
+.no-pointerevents #select_num_seats .wrapper-dropdown-2 .dropdown2 {display: none;opacity: 1;  /*If opacity support but no pointer-events support */pointer-events: auto; /* If pointer-events support but no pointer-events support */}
+.no-opacity       #select_num_seats .wrapper-dropdown-2.active .dropdown2,
+.no-pointerevents #select_num_seats .wrapper-dropdown-2.active .dropdown2 {display: block;}
+#select_num_seats .col1{float:left;margin:0 24px 0 0;}
+
+/*#book_button{width:412px;padding:20px 0 20px 0;border-radius:4px;text-align:center;margin:0 auto;clear:both;background: -webkit-linear-gradient(#46b65a, #1a7f2d); 
+    background: -o-linear-gradient(#46b65a, #1a7f2d);
+    background: -moz-linear-gradient(#46b65a, #1a7f2d); 
+    background: linear-gradient(#46b65a, #1a7f2d); }
+#book_button a{text-decoration:none;color:#fff;font-size:14px;text-transform:uppercase;display:block}*/
+
+
+/*------------Events,Deals,Night Life, Tours Slider Stylings---------------*/
+
+
+	
+	
+/*.t-row:nth-child(even) {
+    background-color:#999;}	
+		
+.t-row .wrapper-dropdown-2 {position: relative;width: 275px;padding: 10px 15px;background: #fff;color:#000;border-radius: 5px;cursor: pointer;   outline: none;}
+.t-row .wrapper-dropdown-2:after {content: "";width: 0;height: 0;position: absolute;right: 13px;top: 50%;margin-top: -3px;border-width: 6px 6px 0 6px;    border-style: solid;border-color: white transparent;}
+.t-row .wrapper-dropdown-2 .dropdown2 {text-align: center;position: absolute;top: 45px;left: 22px;right: 0px;background: white;-webkit-transition: all 0.3s ease-out;    -moz-transition: all 0.3s ease-out;-ms-transition: all 0.3s ease-out;-o-transition: all 0.3s ease-out;transition: all 0.3s ease-out;list-style: none;width:195px;opacity: 0;pointer-events: none;z-index: 999999 ! important;padding:20px;border-radius: 5px;border:3px solid #cccccc;}
+.t-row .wrapper-dropdown-2 .dropdown2 li{border-bottom:1px solid #cccccc;padding:5px 0;}
+.t-row .wrapper-dropdown-2 .dropdown2 li:last-child{border:0;}
+.t-row .wrapper-dropdown-2 .dropdown2 li a {display: block;text-decoration: none;color: #333;padding: 5px 0px!important;font-size:14px;-webkit-transition: all 0.3s ease-out;-moz-transition: all 0.3s ease-out;-ms-transition: all 0.3s ease-out;-o-transition: all 0.3s ease-out;    transition: all 0.3s ease-out;}
+.t-row .wrapper-dropdown-2 .dropdown2 li i {margin-right: 5px;color: inherit;vertical-align: middle;}
+.t-row .wrapper-dropdown-2 .dropdown2 li:hover a {color: grey;}
+.t-row .wrapper-dropdown-2.active:after {border-width: 0 6px 6px 6px;}
+.t-row .wrapper-dropdown-2.active .dropdown2 {opacity: 1;pointer-events: auto;}
+
+ No CSS3 support 
+.no-opacity       .t-row  .wrapper-dropdown-2 .dropdown2,
+.no-pointerevents .t-row  .wrapper-dropdown-2 .dropdown2 {display: none;opacity: 1; pointer-events: auto;}
+.no-opacity       .t-row  .wrapper-dropdown-2.active .dropdown2,
+.no-pointerevents .t-row  .wrapper-dropdown-2.active .dropdown2 {display: block;}
+.t-row  .col1{width:150px;float:left;margin:0 24px 0 0;}
+
+.inp-icn-MasterCard{background:url("/images/Master-Card-icon.png") no-repeat left center; width:32px;} 
+.inp-icn-Visa{background:url("/images/visa_icon.png") no-repeat left center; width:32px;} 
+.inp-icn-AmEx{background:url("/images/American-Express-icon.png") no-repeat left center; width:32px;}
+.inp-icn-blank{background:url("/images/blank-card-icon.png") no-repeat left center; width:32px;}*/
+
+
+
+ 
+	

@@ -26,6 +26,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/Views/styles/extras.1.1.0.min.css">
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script
+		src="${pageContext.request.contextPath}/Views/scripts/jquery-3.3.1.min"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
 </head>
@@ -65,31 +67,49 @@
 				</form>
 				<div class="nav-wrapper">
 					<ul class="nav flex-column">
-						<li class="nav-item" id="proFile"><a class="nav-link " href="#"> <i
-								class="material-icons">edit</i> <span>Thông Tin Cá Nhân</span>
+						<li class="nav-item" id="proFile"><a class="nav-link "
+							href="#"> <i class="material-icons">edit</i> <span>Thông
+									Tin Cá Nhân</span>
 						</a></li>
-						<li class="nav-item" id="mnFilm"><a class="nav-link " href="#"> <i
-								class="material-icons">vertical_split</i> <span>Quản Lý
-									Phim</span>
+						<li class="nav-item" id="mnFilm"><a class="nav-link "
+							href="#"> <i class="material-icons">vertical_split</i> <span>Quản
+									Lý Phim</span>
 						</a></li>
-						<li class="nav-item" id="mnScheduleFilm"><a class="nav-link " href="#"> <i
-								class="material-icons">note_add</i> <span>Quản Lý Lịch
-									Chiếu</span>
+						<li class="nav-item" id="mnScheduleFilm"><a class="nav-link "
+							href="#"> <i class="material-icons">note_add</i> <span>Quản
+									Lý Lịch Chiếu</span>
 						</a></li>
-						<li class="nav-item" id="mnPerson"><a class="nav-link " href="#"> <i
-								class="material-icons">person</i> <span>Quản Lý Người
-									Dùng</span>
+						<li class="nav-item dropdown" ><a
+							class="nav-link dropdown-toggle" id="dropdownMenuInput"
+							data-toggle="dropdown" href="#"> <i class="material-icons">desktop_windows</i>
+								<span>Quản Lý Rạp Phim</span>
+								<div class="dropdown-menu " aria-labelledby="dropdownMenuInput">
+									<a class="nav-link dropdown-item" href="#" id="mnRapChieu" > <i
+										class="material-icons">add</i> <span>Rạp Chiếu</span>	
+								
+									</a> <a class="nav-link dropdown-item " href="#" id="mnPhongChieu" > <i
+										class="material-icons" >add</i> <span>Phòng Chiếu</span>
+									</a>
+								</div>
 						</a></li>
-						<li class="nav-item" id="logout"><a class="nav-link " href="#"> <i
-								class="material-icons">view_module</i> <span>Đăng Xuất</span>
+						<li class="nav-item" id="mnScheduleFilm"><a class="nav-link "
+							href="#"> <i class="material-icons">trending_up</i> <span>Quản
+									Lý giao dịch</span>
+						</a></li>
+						<li class="nav-item" id="mnPerson"><a class="nav-link "
+							href="#"> <i class="material-icons">person</i> <span>Quản
+									Lý Người Dùng</span>
+						</a></li>
+						<li class="nav-item" id="logout"><a class="nav-link "
+							href="#"> <i class="material-icons">view_module</i> <span>Đăng
+									Xuất</span>
 						</a></li>
 
 					</ul>
 				</div>
 			</aside>
 			<main
-				class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3"
-				>
+				class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
 			<div class="main-navbar sticky-top bg-white">
 				<!-- Main Navbar -->
 				<nav
@@ -182,8 +202,7 @@
 					</nav>
 				</nav>
 			</div>
-			<div id="main_pn">
-			</div>
+			<div id="main_pn"></div>
 			</main>
 
 
@@ -210,8 +229,7 @@
 		src="${pageContext.request.contextPath}/Views/scripts/extras.1.1.0.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/Views/scripts/shards-dashboards.1.1.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/Views/scripts/jquery-3.3.1.min"></script>
+	
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>
 	<script
@@ -220,35 +238,52 @@
 		$(document)
 				.ready(
 						function() {
-							
-							
+
 							$("#main_pn")
-							.load("${pageContext.request.contextPath}/Views/MainThongTinCaNhan.jsp");
-							 $("#mnFilm").click(function() {
-						            
-								 $("#main_pn")
 									.load(
-											"${pageContext.request.contextPath}/table");
-								 
-								 
-						        });
-							 $("#mnScheduleFilm").click(function() {
-						            
-								 $("#main_pn")
-									.load(
-											"${pageContext.request.contextPath}/Views/MainQuanLyLichChieu.jsp");
-						        });
-							 $("#mnPerson").click(function() {
-						            
-								 $("#main_pn")
-									.load(
-											"${pageContext.request.contextPath}/Views/MainQuanLyNguoiDung.jsp");
-						        });
-							
-					            
-								
-					     
-							
+											"${pageContext.request.contextPath}/Views/MainThongTinCaNhan.jsp");
+							$("#mnFilm")
+									.click(
+											function() {
+
+												$("#main_pn")
+														.load(
+																"${pageContext.request.contextPath}/table");
+
+											});
+							$("#mnScheduleFilm")
+									.click(
+											function() {
+
+												$("#main_pn")
+														.load(
+																"${pageContext.request.contextPath}/Views/MainQuanLyLichChieu.jsp");
+											});
+							$("#mnPerson")
+									.click(
+											function() {
+
+												$("#main_pn")
+														.load(
+																"${pageContext.request.contextPath}/Views/MainQuanLyNguoiDung.jsp");
+											});
+							mnRapChieu
+							$("#mnRapChieu")
+									.click(
+											function() {
+
+												$("#main_pn")
+														.load(
+																"${pageContext.request.contextPath}/Views/MainQuanLyRapChieu.jsp");
+											});
+							$("#mnPhongChieu")
+							.click(
+									function() {
+
+										$("#main_pn")
+												.load(
+														"${pageContext.request.contextPath}/Views/MainQuanLyPhongChieu.jsp");
+									});
 
 						});
 	</script>

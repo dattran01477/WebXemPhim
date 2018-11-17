@@ -40,7 +40,7 @@ public class AppUtils {
         return id;
     }
     public static String getRedirectAfterLoginUrl(HttpSession session, int redirectId) {
-        String url = id_uri_map.get(redirectId);
+    	String url = id_uri_map.get(redirectId);
         if (url != null) {
             return url;
         }

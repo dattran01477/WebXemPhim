@@ -67,7 +67,7 @@
 			</div>
 			
 							<script>
-		$(document).ready(
+							$(document).ready((
 				
 				function() {
 					
@@ -135,7 +135,7 @@
 							});
 					
 					
-				});
+				}))
 	</script>
 			
 	

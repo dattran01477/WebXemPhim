@@ -59,7 +59,7 @@ public class SecurityFilter implements Filter {
 	            // Nếu người dùng chưa đăng nhập,
 	            // Redirect (chuyển hướng) tới trang đăng nhập.
 	            if (loginedUser == null) {
-	                String requestUri = req.getRequestURI();
+	                String requestUri = req.getRequestURL()+"?"+req.getQueryString();
 	                // Lưu trữ trang hiện tại để redirect đến sau khi đăng nhập thành công.
 	                int redirectId = AppUtils.storeRedirectAfterLoginUrl(req.getSession(), requestUri);
 	                resp.sendRedirect(wrapRequest.getContextPath() + "/Login?redirectId=" + redirectId);
@@ -70,7 +70,7 @@ public class SecurityFilter implements Filter {
 	            boolean hasPermission = SecurityUtils.hasPermission(wrapRequest);
 	            if (!hasPermission) {
 	 
-	                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/View/accessDenied.jsp");
+	                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("");
 	                dispatcher.forward(request, response);
 	                return;
 	            }

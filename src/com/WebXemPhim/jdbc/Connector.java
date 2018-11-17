@@ -41,7 +41,7 @@ public class Connector {
 	public List<Film> getFilm(int firstResult, int amountResult)
 	{
 		List<Film> films = new ArrayList<>();
-		String sql = "select  * from(SELECT *, ROW_NUMBER() OVER (ORDEr  BY id) as Roww FROM Phim)  "
+		String sql = "select  * from(SELECT *, ROW_NUMBER() OVER (ORDEr  BY id_Phim) as Roww FROM Phim)  "
 				+ "as result where result.Roww between "+firstResult+" and "+(firstResult+amountResult)+"";
 		Film film;
 		try {
@@ -69,7 +69,7 @@ public class Connector {
 	public int CountFilm()
 	{
 		int count=0;
-		String sql = "select count(id) from Phim";
+		String sql = "select count(id_Phim) from Phim";
 		try {
 
 			java.sql.Statement statement = conn.createStatement();

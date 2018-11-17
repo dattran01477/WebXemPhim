@@ -1,12 +1,19 @@
 package com.WebXemPhim.jdbc;
 
 import java.beans.Statement;
+import java.io.Console;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
+import com.WebXemPhim.Dao.RoleDao;
 import com.WebXemPhim.Dao.XuatChieuDao;
 import com.WebXemPhim.model.XuatChieu;
+import com.google.gson.Gson;
 
 public class main1 {
 
@@ -17,12 +24,13 @@ public class main1 {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws ClassNotFoundException, SQLException{
-		XuatChieuDao xcd=new XuatChieuDao();
-		XuatChieu xc=xcd.getInfoXuatChieu(24);
-		
-		System.out.print(xc.getId());
+		 // init map
+		String Str = new String("WelcometoTutorialspoint.com");
+	      System.out.print("Found Index :" );
+	      System.out.println(Str.indexOf("Welcometo" ));
+			
 		
 
 	}
-
+	
 }

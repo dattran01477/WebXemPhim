@@ -17,16 +17,20 @@
 				<div class="card-body">
 					<form class="add-new-post">
 						<input class="form-control form-control-lg mb-3" type="text"
-							placeholder="Tiêu đề phim" name="titleFlim">
+							placeholder="Tiêu đề phim" name="tieuDe">
+							<input class="form-control form-control-lg mb-3" type="number"
+							placeholder="Giá Vé" name="giaVe">
+							<input class="form-control form-control-lg mb-3" type="number"
+							placeholder="Do dai" name="doDai">
 						<div
 							class="row justify-content-md-center  justify-content-lg-center align-items-center">
 							<div class="col-lg-4 col-md-4">
 								<input class="form-control form-control-lg mb-3" type="text"
-									placeholder="Đạo diễn" name="directorName">
+									placeholder="Đạo diễn" name="daoDien">
 							</div>
 							<div class="col-lg-4 col-md-4">
 								<input class="form-control form-control-lg mb-3" type="number"
-									placeholder="Độ tuổi" name="ageLimit">
+									placeholder="Độ tuổi" name="doTuoi">
 							</div>
 							<div class="col-lg-4 col-md-3">
 								<div class="dropdown mb-1">
@@ -34,7 +38,7 @@
 										id="dropdownMenuButton" data-toggle="dropdown"
 										aria-haspopup="true" aria-expanded="false">Quốc gia</button>
 									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<select multiple class="form-control" id="sel2" name="country">
+										<select multiple class="form-control" id="sel2" name="quocGia">
 											<option class="dropdown-item">Việt Nam</option>
 											<option class="dropdown-item">Lào</option>
 											<option class="dropdown-item">Campuchia</option>
@@ -46,21 +50,21 @@
 							</div>
 						</div>
 						<input class="form-control form-control-lg mb-3" type="text"
-							placeholder="Diễn viên" name="cast">
+							placeholder="Diễn viên" name="dienVien">
 						<div
 							class="row justify-content-md-center  justify-content-lg-center align-items-center">
 							<div class="col-lg-7 col-md-7">
 								<input class="form-control form-control-lg mb-3" type="url"
-									placeholder="Link trailer phim" name="urlTrailerFilm">
+									placeholder="Link trailer phim" name="url_Trailer">
 							</div>
 							<div class="col-lg-5 col-md-5">
-								<input class="form-control form-control-lg mb-3" type="file"
-									placeholder="Hình ảnh phim" name="imageFilm">
+								<input class="form-control form-control-lg mb-3" type="url"
+									placeholder="Hình ảnh phim" name="url_Image">
 							</div>
 						</div>
 						<div class="col-lg-5 col-md-6 pl-0">
 							<input class="form-control form-control-lg mb-3" type="date"
-								placeholder="Ngày ra mắt phim" name="dateToShowFilm">
+								placeholder="Ngày ra mắt phim" name="ngayRaMatPhim">
 						</div>
 						<div id="editor-container" class="add-new-post__editor mb-1"></div>
 					</form>
@@ -74,7 +78,7 @@
 				</div>
 				<div class="card-body border-bottom">
 					<select multiple class="form-control" id="sel_Danhmuc"
-						name="sellist2">
+						name="tenDanhMuc">
 					</select>
 				</div>
 				<div class="card-footer">
@@ -95,35 +99,17 @@
 			</div>
 			 <div class="card card-small mb-3">
                                 <div class="card-header  border-bottom text-center text-justify">
-                                    <span>Tùy Chọn</span>
+                                    <span>Trạng Thái</span>
                                 </div>
-                                <div class="card-body">
-                                    <div class="form-check border-bottom text-left ml-2">
-                                        <input type="checkbox" class="form-check-input" id="isComments">
-                                        <label class="form-check-label" for="exampleCheck1">Cho Phép Bình Luận</label>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-check border-bottom text-left ml-2">
-                                        <input type="checkbox" class="form-check-input" id="isComments">
-                                        <label class="form-check-label" for="exampleCheck1">Cho Phép Bình Luận</label>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-check border-bottom text-left ml-2">
-                                        <input type="checkbox" class="form-check-input" id="isComments">
-                                        <label class="form-check-label" for="exampleCheck1">Cho Phép Bình Luận</label>
-                                    </div>
-                                </div>
+            
                                 <div class="row    align-items-center mb-4">
                                      <div class="dropdown mb-1 col-6 text-center">
-                                        <button class="btn btn-primary dropdown-toggle col-9" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-primary dropdown-toggle col-9" type="button" id="btnTrangThai" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Chế Độ
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <select multiple class="form-control" id="sel2" name="country">
-                                                <option class="dropdown-item">Hot</option>
-                                                <option class="dropdown-item">Xem Nhiều Nhất</option>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id=CmbTrangThai>
+                                            <select multiple class="form-control" id="sel_TrangThai" name="trangThai">
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -143,6 +129,9 @@
                                 </div>
 
                             </div>
+                            <button class="btn btn-primary " type="button" id="btnThemPhim" >
+                                            Thêm Phim
+                                        </button>
 		</div>
 
 	</div>
@@ -153,13 +142,16 @@
 	src="${pageContext.request.contextPath}/Views/scripts/app/app-blog-new-post.1.1.0.js"></script>
 <script>
 	$(document).ready(
+			
+			
 			function() {
+				
 				$("#addCategory").click(
 						function() {
 							$("#sel_Danhmuc").empty();
 
 							$.ajax({
-								url : 'Getcategory',
+								url : '${pageContext.request.contextPath}/Getcategory',
 								data : {
 									categoryName : $('#CategoryName').val()
 								},
@@ -176,6 +168,76 @@
 								}
 							});
 							$("#CategoryName").val("");
+
+						});
+				$("#btnTrangThai").click(function(event) {
+					$.ajax({
+						url : '${pageContext.request.contextPath}/TrangThai',
+						dataType : 'html',
+						success : function(data) {
+							var obj = $.parseJSON(data);
+							$.each(obj, function(index, el) {
+								$(
+										"<option class='dropdown-item'>"
+												+ el
+												+ "</option>")
+										.appendTo($("#sel_TrangThai"));
+							});
+						}
+					});
+					
+					
+				   });
+			
+				$("#btnThemPhim").click(
+						function() {
+							 var tieuDe=$('[name="tieuDe"]').val();
+						        var daoDien=$('[name="daoDien"]').val();
+						        var dienVien=$('[name="dienVien"]').val();
+						        var trangThai=$('[name="trangThai"]').val();
+						        var moTa=$('.ql-editor').html();
+						        var url_Trailer=$('[name="url_Trailer"]').val();
+						        var doDai=$('[name="doDai"]').val();
+						        var quocGia=$('[name="quocGia"]').val();
+						        var giaVe=$('[name="giaVe"]').val();
+						        var tenDanhMuc=$('[name="tenDanhMuc"]').val();
+						        var url_Image=$('[name="url_Image"]').val();
+						        var ngayRaMatPhim=$('[name="ngayRaMatPhim"]').val();
+						         var doTuoi=$('[name="doTuoi"]').val();
+
+							$.ajax({
+								url : '${pageContext.request.contextPath}/AddFilm',
+								data : {
+									tieuDe:tieuDe,
+									daoDien:daoDien,
+									dienVien:dienVien,
+									trangThai:trangThai,
+									moTa:moTa,
+									url_Trailer:url_Trailer,
+									doDai:doDai,
+									quocGia:quocGia,
+									giaVe:giaVe,
+									tenDanhMuc:tenDanhMuc,
+									url_Image:url_Image,
+									ngayRaMatPhim:ngayRaMatPhim,
+									doTuoi:doTuoi
+								},
+								dataType : 'html',
+								success : function(data) {
+									if(data='1')
+										{
+										$("#main_pn").empty();
+										$("#main_pn")
+										.load(
+												"${pageContext.request.contextPath}/table");
+										}
+									else
+										{
+										alert("Lỗi rồi bạn ơi")
+										}
+								}
+							});
+							
 
 						});
 			});

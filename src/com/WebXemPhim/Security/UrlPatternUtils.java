@@ -26,7 +26,7 @@ public class UrlPatternUtils {
 	  ServletContext context=request.getServletContext();
 	  String servletPath=request.getServletPath();
 	  String pathInfo=request.getPathInfo();
-	  String urlPattern=null;
+ 	  String urlPattern=null;
 	  if (pathInfo != null) {
 	         urlPattern = servletPath + "/*";
 	         return urlPattern;

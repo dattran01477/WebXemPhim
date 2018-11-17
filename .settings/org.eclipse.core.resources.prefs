@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/com/WebXemPhim/AppUtils/AppUtils.java=UTF-8
+encoding//src/com/WebXemPhim/Controler/LoginServlet.java=UTF-8
 encoding//src/com/WebXemPhim/Security/SecurityConfig.java=UTF-8
 encoding//src/com/WebXemPhim/Security/SecurityFilter.java=UTF-8

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserAccount {
+	public UserAccount() {
+	}
 	
 	public UserAccount(String user, String pass, List<String> roles) {
 		super();
@@ -12,6 +14,7 @@ public class UserAccount {
 		this.roles=new ArrayList<String>();
 		this.roles = roles;
 	}
+	private int id_Account;
 	private String user;
 	public String getUser() {
 		return user;
@@ -30,6 +33,12 @@ public class UserAccount {
 	}
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+	public int getId_Account() {
+		return id_Account;
+	}
+	public void setId_Account(int id_Account) {
+		this.id_Account = id_Account;
 	}
 	private String pass;
 	private List<String> roles;

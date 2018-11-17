@@ -26,7 +26,7 @@
       },
       placeholder: 'Mô tả phim',
       theme: 'snow',
-      name:'contents'
+      name:'moTa'
     });
 
   });
