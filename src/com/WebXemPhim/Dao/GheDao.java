@@ -12,20 +12,8 @@ import java.util.List;
 
 import com.WebXemPhim.jdbc.ConectionUtils;
 
-public class GheDao {
-	static Connection conn;
-	public GheDao() {
-		// TODO Auto-generated constructor stub
-	}
-	static
-	{
-		try {
-			init();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+public class GheDao extends ConnectBasic {
+	
 	public static void init() throws ClassNotFoundException, SQLException {
 		conn = ConectionUtils.getSqlConnect();
 	}
@@ -65,6 +53,27 @@ public class GheDao {
 		
 		}
 		return listGhe;
+	}
+	public static String getIdGhe(String hang,int soGhe,int idPhong)
+	{
+		String sql="select id_Ghe from Ghe where hang=? and soGhe=? and id_PhongChieu=?";
+		String idGhe=null;
+		try {
+			java.sql.Statement statement = conn.createStatement();
+			PreparedStatement pre=conn.prepareStatement(sql);
+			pre.setString(1, hang);
+			pre.setInt(2, soGhe);
+			pre.setInt(3, idPhong);
+			ResultSet rs = pre.executeQuery();
+			while (rs.next()) {
+				idGhe=rs.getString(1);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		
+		}
+		return idGhe;
+		
 	}
 
 }

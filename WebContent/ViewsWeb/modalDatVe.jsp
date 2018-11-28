@@ -78,6 +78,9 @@ $(document).ready(
 	 var currentIdFilm=-1;
 	 $(".btnDatVe").click(function(event) {
 		 currentIdFilm=$(this).attr("tag");
+		 $("#infoXuatChieu").empty();
+		 $("#inputGroupSelect02").val("rạp:");
+		
 		});
 	 $("#inputGroupSelect02").change(function(event) {
 		 $("#infoXuatChieu").empty();

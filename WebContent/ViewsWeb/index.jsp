@@ -9,6 +9,8 @@
 <link
 	href="${pageContext.request.contextPath}/ViewsWeb/css/bootstrap.css"
 	rel='stylesheet' type='text/css' />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Custom Theme files -->
 <link href="${pageContext.request.contextPath}/ViewsWeb/css/style.css"
 	rel="stylesheet" type="text/css" media="all" />
@@ -19,8 +21,10 @@
 	src="${pageContext.request.contextPath}/ViewsWeb/js/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js"
+	type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css"
+	rel="stylesheet" type="text/css" />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,10 +35,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
     addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 
     function hideURLbar() { window.scrollTo(0, 1); }
     
+
 
 
 </script>
@@ -47,14 +53,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 	<!-- header-section-starts -->
 	<div class="row mx-0">
-		<div class="container-fluid ">
+		<div class="container-fluid px-0">
 			<div class="">
 				<div class="row mx-0">
 					<div class="row w-100 mx-0">
 						<div class="main col-md-12 col-lg-12 col-12 px-0">
 							<%@include file="Header.jsp"%>
 							<%@include file="Home.jsp"%>
-							<%-- 	<%@include file="Footer.jsp" %> --%>
+							<%@include file="Footer.jsp"%>
 						</div>
 					</div>
 				</div>
@@ -79,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="modal fade bd-example-modal-md" id="FilmDangChieu">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -102,6 +108,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		var image = $("#ImageFilmHot");
 		image.height(width / 3 * 2.1);
 		image.width(width);
+
+		var widthImgFilmDang = $(".FilmDangChieu").width();
+		var imageFilmDangChieu = $(".FilmDangChieu");
+		imageFilmDangChieu.height(widthImgFilmDang * 1.5);
+
 	});
 	$(document).ready(function() {
 		var width = $("#AreaImageFilmHot").width();
@@ -109,6 +120,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		var image = $("#ImageFilmHot");
 		image.height(width / 3 * 2);
 		image.width(width);
+
+		var widthImgFilmDang = $(".FilmDangChieu").width();
+		var imageFilmDangChieu = $(".FilmDangChieu");
+		imageFilmDangChieu.height(widthImgFilmDang * 1.5);
+
 	});
 </script>
 </html>

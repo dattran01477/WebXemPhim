@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,20 +15,11 @@ import com.WebXemPhim.model.Category;
 import com.WebXemPhim.model.Film;
 import com.WebXemPhim.model.UserAccount;
 
-public  class UserAccountDao {
-	static Connection conn;
+public  class UserAccountDao extends ConnectBasic{
+	
 	private static final Map<String,UserAccount> mapUsers=new HashMap<String,UserAccount>();
-	static {
-		try {
-			init();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	};
-	public static void init() throws ClassNotFoundException, SQLException {
-		conn = ConectionUtils.getSqlConnect();
-	}
+	
+	
 	 /*private static void init()
 	 {
 		 List<String> role1=new ArrayList<String>();
@@ -55,13 +47,29 @@ public  class UserAccountDao {
 				pre.setString(1, userName);
 				pre.setString(2,pass);
 				ResultSet rs = pre.executeQuery();
+				int idTK=-1;
+				int soDu=0;
 				while (rs.next()) {
 					userTemp = new UserAccount();
 					userTemp.setId_Account(rs.getInt(1));
+					idTK=rs.getInt(1);
+					soDu=SoDuTaiKhoanDao.getSoDuTk(idTK);
 					userTemp.setUser(rs.getString(2));
-					role.add(rs.getString(3));
+					
+					//nếu chức vụ là ad thì mới thêm thêm  2 là id của role ad
+					if(rs.getInt(3)==2)
+					{
+						role.add(RoleDao.getNameRole(rs.getInt(3)));
+					}
 					userTemp.setRoles(role);
 					userTemp.setPass(rs.getString(4));
+					userTemp.setTen(rs.getString(5));
+					userTemp.setTuoi(rs.getInt(6));
+					userTemp.setGioiTinh(rs.getString(7));
+					userTemp.setSdt(rs.getString(8));
+					userTemp.setDiaChi(rs.getString(9));
+					userTemp.setEmail(rs.getString(10));
+					userTemp.setSoDuTK(soDu);
 				}
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
@@ -73,7 +81,7 @@ public  class UserAccountDao {
 	 public static boolean addUser(String userName,String pass,String roleName)
 	 {
 		 
-			String sql = "insert into taiKhoan values(?,?,?)";
+			String sql = "insert into taiKhoan(tenDangNhap,id_role,matKhau) values(?,?,?)";
 			int id_Role=RoleDao.getIdRole(roleName);
 			
 			
@@ -86,7 +94,6 @@ public  class UserAccountDao {
 					pre.setString(1, userName);
 					pre.setString(3,pass);
 					pre.setInt(2, id_Role);
-				
 					pre.execute(); 
 						return true;
 					
@@ -100,5 +107,26 @@ public  class UserAccountDao {
 			return false;
 			
 	 }
+	 public static int getSoDuTK(int idTK)
+	 {
+		 String sql="select soDu from XuTrongTaiKhoan where id_TaiKhoan=?";
+		 int soDu=0;
+		 try {
+			 Statement statement=conn.createStatement();
+			 PreparedStatement pre=conn.prepareStatement(sql);
+			 pre.setInt(1, idTK);
+			 ResultSet rs=pre.executeQuery();
+			 while(rs.next())
+			 {
+				 soDu=rs.getInt(1);
+			 }
+		 }
+		 catch (SQLException e) {
+			System.out.println();
+		}
+		 return soDu;
+	 }
+	/* public static bool updateInfoAccount(int idTk,String matKhau,Strin)*/
+	
 
 }

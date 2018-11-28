@@ -122,8 +122,8 @@
 															+ "</td><td>"
 															+ el.quocGia
 															+ "</td><td>"  
-															+   "<a href=${pageContext.request.contextPath}/delete?id="+el.id+"><i class='fa fa-edit' style='font-size:24px' ></i></a>"
-			                                                + 	"<a href='#'><i class='fa fa-trash' style='font-size:24px'></i></a>"
+															+   "<a href=${pageContext.request.contextPath}/Update?id="+el.id+"><i class='fa fa-edit' style='font-size:24px' ></i></a>"
+			                                                + 	"<a  href=${pageContext.request.contextPath}/delete?id="+el.id+"><i class='fa fa-trash' style='font-size:24px'></i></a>"
 	                                               			+ "</td>"
 															+ "</tr>")
 													.appendTo($("tbody"));
@@ -133,6 +133,7 @@
 								});
 								tempBtnClickPageNumber=$(this);
 							});
+				
 					
 					
 				}))

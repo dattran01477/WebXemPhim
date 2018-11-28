@@ -39,11 +39,13 @@ public class AddUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
-		
 		String userName=request.getParameter("userName");
 		String pass=request.getParameter("passWord");
 		String roleName=request.getParameter("roleName");
+		if(roleName==null)
+		{
+			roleName="cu";
+		}
 		PrintWriter out =response.getWriter();
 		if(userName!=""&&pass!=""&&roleName!="")
 		{
@@ -60,10 +62,7 @@ public class AddUserServlet extends HttpServlet {
 		else
 		{
 			out.print("vui lòng nhập đủ các trường");
-		}
-		
-			
-		
+		}	
 	}
 
 }

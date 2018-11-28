@@ -2,10 +2,10 @@ package com.WebXemPhim.Controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 import com.WebXemPhim.Dao.*;
-import com.WebXemPhim.jdbc.Connector;
-import com.WebXemPhim.model.Category;
+
 import com.WebXemPhim.model.XuatChieu;
 import com.google.gson.Gson;
 

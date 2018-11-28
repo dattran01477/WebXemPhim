@@ -46,4 +46,12 @@ public class AppUtils {
         }
         return null;
     }
+    public static String GetHang(String a) {
+    	String b[]=a.split("_");
+    	return b[0];
+    }
+    public static int GetCot(String a) {
+    	String b[]=a.split("_");
+    	return Integer.parseInt(b[1]);
+    }
 }

@@ -14,7 +14,7 @@
 		<div class="container-login">
 			<div class="wrap-login">
 				<form class="login-form" method="POST" action="Login">
-					<span class="title-login-form">Thi Thử Quốc Gia</span>
+					<span class="title-login-form">Cenima DTH</span>
 					<input type="hidden" name="redirectId" value="${param.redirectId}" />
 					<div class="icon-login-form"><img src="https://ss-images.catscdn.vn/2018/06/10/2968571/34689401_2147325555551794_7654281988110548992_n.jpg"></div>
 					

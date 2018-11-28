@@ -36,14 +36,17 @@ public class SecurityFilter implements Filter {
 		 HttpServletResponse resp = (HttpServletResponse) response;
 	     
 		 String servletPath = req.getServletPath();
+		
 		 
 		 UserAccount loginedUser = AppUtils.getLoginedUser(req.getSession());
-		 
-		 if (servletPath.equals("/Login")) {
+		
+		 if (servletPath.equals("/Login"))
+		 {
 	            chain.doFilter(request, response);
 	            return;
 	        }
 	        HttpServletRequest wrapRequest = req;
+	         
 	 
 	        if (loginedUser != null) {
 	            // User Name
@@ -51,23 +54,29 @@ public class SecurityFilter implements Filter {
 	            List<String> roles = loginedUser.getRoles();
 	            // Gói request cũ bởi một Request mới với các thông tin userName và Roles.
 	            wrapRequest = new UserRoleRequestWrapper(userName, roles, req);
+	            
 	        }
 	 
 	       
 	        if (SecurityUtils.isSeacurityPage(req)) {
-	 
+	        	  
 	            // Nếu người dùng chưa đăng nhập,
 	            // Redirect (chuyển hướng) tới trang đăng nhập.
+	        	 
 	            if (loginedUser == null) {
-	                String requestUri = req.getRequestURL()+"?"+req.getQueryString();
+	            	
+	                String requestUri = catChuoi(wrapRequest.getContextPath(),req.getRequestURL()+"?"+req.getQueryString());
+	                
 	                // Lưu trữ trang hiện tại để redirect đến sau khi đăng nhập thành công.
 	                int redirectId = AppUtils.storeRedirectAfterLoginUrl(req.getSession(), requestUri);
 	                resp.sendRedirect(wrapRequest.getContextPath() + "/Login?redirectId=" + redirectId);
 	                return;
 	            }
-	 
+	          
 	            // Kiểm tra người dùng có vai trò hợp lệ hay không?
+	   
 	            boolean hasPermission = SecurityUtils.hasPermission(wrapRequest);
+	            
 	            if (!hasPermission) {
 	 
 	                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("");
@@ -75,13 +84,19 @@ public class SecurityFilter implements Filter {
 	                return;
 	            }
 	        }
-	 
+	       
 	        chain.doFilter(wrapRequest, response);
+	       
 	    }
 	 
 	     
 	
-
+	private String catChuoi(String chuoicon,String chuoiCha)
+		{
+			
+			int index1 = chuoiCha.indexOf(chuoicon);
+	        return chuoiCha.substring(index1+chuoicon.length());
+		}
 	
 	public void init(FilterConfig fConfig) throws ServletException {
 		

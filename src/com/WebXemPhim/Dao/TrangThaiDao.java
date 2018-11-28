@@ -1,33 +1,18 @@
 package com.WebXemPhim.Dao;
 
-import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.WebXemPhim.jdbc.ConectionUtils;
 
 
 
-public class TrangThaiDao {
-	private static Connection conn;
-	public TrangThaiDao() {
-		// TODO Auto-generated constructor stub
-	}
-	static
-	{
-		try {
-			init();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public static void init() throws ClassNotFoundException, SQLException {
-		conn = ConectionUtils.getSqlConnect();
-	}
+
+public class TrangThaiDao  extends ConnectBasic {
+	
 	public static List<String> getAllTenTrangThai()
 	{
 		String sql = "select tenTrangThai from TrangThai";

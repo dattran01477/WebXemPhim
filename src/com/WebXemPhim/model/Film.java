@@ -1,10 +1,13 @@
 package com.WebXemPhim.model;
 
+import java.sql.Date;
+
 public class Film {
 
 	
 	private String tieuDe;
 	private int doTuoi;
+	private Date ngayRaMatPhim;
 	private double diemDanhGia;
 	public int getDoTuoi() {
 		return doTuoi;
@@ -106,6 +109,12 @@ public class Film {
 	
 	public Film() {
 		// TODO Auto-generated constructor stub
+	}
+	public Date getNgayRaMatPhim() {
+		return ngayRaMatPhim;
+	}
+	public void setNgayRaMatPhim(Date ngayRaMatPhim) {
+		this.ngayRaMatPhim = ngayRaMatPhim;
 	}
 	
 

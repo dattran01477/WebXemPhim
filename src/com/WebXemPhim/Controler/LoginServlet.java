@@ -38,11 +38,14 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("passWord");
 		com.WebXemPhim.model.UserAccount userAccount=com.WebXemPhim.Dao.UserAccountDao.findAcc(userName,password);
 		
+		//Set attr số dư tài khoản
+		getServletContext().setAttribute("soDuTK",userAccount.getSoDuTK());	
 		if(userAccount==null)
 		{
 			String error="Đăng nhập không thành công";
@@ -53,6 +56,7 @@ public class LoginServlet extends HttpServlet {
 	            return;
 		}
 		com.WebXemPhim.AppUtils.AppUtils.storeLoginedUser(request.getSession(), userAccount);
+		
 		  int redirectId = -1;
 	        try {
 	            redirectId = Integer.parseInt(request.getParameter("redirectId"));
@@ -60,11 +64,10 @@ public class LoginServlet extends HttpServlet {
 	        }
 	        String requestUri = com.WebXemPhim.AppUtils.AppUtils.getRedirectAfterLoginUrl(request.getSession(), redirectId);
 	        if (requestUri != null) {
-	        	 RequestDispatcher dispatcher //
-	             = this.getServletContext()//
-	                   .getRequestDispatcher("/DatVe?idPhim=9&idXC=25&NgayXemPhim=11/15/2018");
-
-	    		 dispatcher.forward(request, response);
+	        	RequestDispatcher dispatcher //
+	            = this.getServletContext()//
+	                  .getRequestDispatcher(requestUri);
+	        	 dispatcher.forward(request, response);
 	        } else {
 	            // Mặc định sau khi đăng nhập thành công
 	            // chuyển hướng về trang /userInfo

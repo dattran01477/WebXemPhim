@@ -1,6 +1,6 @@
 package com.WebXemPhim.Dao;
 
-import java.sql.Connection;
+
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,16 +9,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.WebXemPhim.jdbc.ConectionUtils;
+
 import com.WebXemPhim.model.Film;
 
-public class FilmDao {
+public class FilmDao extends ConnectBasic {
 
-	static Connection conn;
-	public FilmDao() throws ClassNotFoundException, SQLException {
-		conn = ConectionUtils.getSqlConnect();
-	}
-	public List<Film> getFilm(int firstResult, int amountResult)
+	
+	public static List<Film> getFilm(int firstResult, int amountResult)
 	{
 		List<Film> films = new ArrayList<>();
 		String sql = "select  * from(SELECT *, ROW_NUMBER() OVER (ORDEr  BY id_Phim) as Roww FROM Phim)  "
@@ -53,7 +50,7 @@ public class FilmDao {
 		}
 		return films;
 	}
-	public boolean deleteFilm(int id_film)
+	public static boolean deleteFilm(int id_film)
 	{
 		String sql = "delete from Phim where id_Phim=?";
 		Film film;
@@ -70,7 +67,7 @@ public class FilmDao {
 		}
 	
 	}
-	public int CountFilm()
+	public static int CountFilm()
 	{
 		int count=0;
 		String sql = "select count(id_Phim) from Phim";
@@ -87,7 +84,7 @@ public class FilmDao {
 		}
 		return count;
 	}
-	public List<Film> getFilmDangChieu()
+	public static List<Film> getFilmDangChieu()
 	{
 		List<Film> films =new ArrayList<>();
 		String sql = "select * from Phim where id_TrangThai=9";
@@ -119,7 +116,7 @@ public class FilmDao {
 		}
 		return films;
 	}
-	public List<Film> getFilmChuanBiChieu()
+	public static List<Film> getFilmChuanBiChieu()
 	{
 		List<Film> films =new ArrayList<>();
 		String sql = "select * from Phim where id_TrangThai=10";
@@ -151,7 +148,41 @@ public class FilmDao {
 		}
 		return films;
 	}
-	public Film getFilmHot()
+	public static Film getFilm(int idFilm)
+	{
+		String sql="select * from Phim where id_Phim=?";
+		Film film =null;
+		try {
+			PreparedStatement pre=conn.prepareStatement(sql);
+			pre.setInt(1, idFilm);
+			
+			ResultSet rs=pre.executeQuery();
+			while(rs.next())
+			{
+				film = new Film();
+				film.setId(rs.getInt(1));
+				film.setTieuDe(rs.getString(2));
+				film.setDaoDien(rs.getString(3));
+				film.setDienVien(rs.getString(4));
+				film.setId_TrangThai(rs.getInt(5));
+				film.setMoTa(rs.getString(6));
+				film.setUrlTrailer(rs.getString(7));
+				film.setDoDai(rs.getInt(8));
+				film.setQuocGia(rs.getString(9));
+				film.setGiaVe(rs.getInt(10));
+				film.setId_DanhMucPhim(rs.getInt(11));
+				film.setUrl_Image(rs.getString(12));
+				film.setDoTuoi(rs.getInt(13));
+				film.setNgayRaMatPhim(rs.getDate(15));
+			}
+			
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return film;
+	}
+	public static Film getFilmHot()
 	{
 	
 		String sql = "select * from Phim where id_TrangThai=8";
@@ -183,7 +214,7 @@ public class FilmDao {
 		}
 		return film;
 	}
-	public boolean addFilm(String tieuDe,String daoDien,String dienVien,String moTa,int doDai,Date ngayRaMat
+	public static boolean addFilm(String tieuDe,String daoDien,String dienVien,String moTa,int doDai,Date ngayRaMat
 			,int doTuoi,String TrangThai,int  id_DanhMuc,String url_TraiLer,String url_Image,String quocGia,
 			int giaVe)
 	{
@@ -228,7 +259,7 @@ public class FilmDao {
 	
 		
 	}
-	public String getTenPhim(int idFilm)
+	public static String getTenPhim(int idFilm)
 	{
 		String sql = "select tieuDe from Phim where id_Phim=?";
 		String name="";	
@@ -246,6 +277,48 @@ public class FilmDao {
 		
 		}
 		return name;
+	}
+	public static boolean updateFilm(int idFilm, String tieuDe, String daoDien, String dienVien, String moTa, int doDai,
+			java.sql.Date sqlDate, int doTuoi, String trangThai, int id_DanhMuc, String url_Trailer, String url_Image,
+			String quocGia, int giaVe) {
+		 String sql="update  Phim	set tieuDe=?,daoDien=?,dienVien=?,id_TrangThai=?,moTa=?,url_TraiLer=?,doDai=?,"
+			  		+ "quocGia=?,giaVe=?,id_DanhMucPhim=?,image=?,doTuoi=?,ngayRaMatFilm=?  where id_Phim=? ";
+		 int id_TrangThai=TrangThaiDao.getIdTrangThai(trangThai);
+		 java.sql.Date sqlStartDate = new java.sql.Date(sqlDate.getTime()); 
+			
+			if(id_TrangThai!=-1&&id_DanhMuc!=-1)
+			{
+				try {
+
+					java.sql.Statement statement = conn.createStatement();
+					PreparedStatement pre=conn.prepareStatement(sql);
+					pre.setString(1, tieuDe);
+					pre.setString(2, daoDien);
+					pre.setString(3, dienVien);
+					pre.setInt(4, id_TrangThai);
+					pre.setString(5, moTa);
+					pre.setString(6, url_Trailer);
+					pre.setInt(7, doDai);
+					pre.setString(8, quocGia);
+					pre.setInt(9, giaVe);
+					pre.setInt(10, id_DanhMuc);
+					pre.setString(11, url_Image);
+					pre.setInt(12, doTuoi);
+					pre.setDate(13, sqlStartDate);
+					pre.setInt(14, idFilm);
+					pre.execute(); 
+					System.out.println("ThanhCong");
+					return true;
+					
+					
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				
+				}
+			}
+			
+			return false;
+	
 	}
 
 }

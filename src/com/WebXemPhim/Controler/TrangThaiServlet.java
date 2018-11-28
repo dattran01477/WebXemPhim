@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.WebXemPhim.Dao.TrangThaiDao;
-import com.WebXemPhim.model.Film;
+
 import com.google.gson.Gson;
 
 /**

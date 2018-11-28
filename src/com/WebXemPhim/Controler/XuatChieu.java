@@ -2,9 +2,6 @@ package com.WebXemPhim.Controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.WebXemPhim.Dao.XuatChieuDao;
-import com.WebXemPhim.model.Film;
+
 import com.google.gson.Gson;
 
 /**
@@ -37,17 +34,11 @@ public class XuatChieu extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		PrintWriter out=response.getWriter();
-		XuatChieuDao xcd = null;
-		try {
-			xcd = new XuatChieuDao();
-		} catch (ClassNotFoundException | SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	
 		
 		String json = null;
 		try {
-			json = new Gson().toJson(xcd.getListXuatChieu());
+			json = new Gson().toJson(XuatChieuDao.getListXuatChieu());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

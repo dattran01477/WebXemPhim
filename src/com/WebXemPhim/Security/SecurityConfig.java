@@ -16,12 +16,9 @@ public class SecurityConfig {
 		{
 			//cấu hình cho admin
 			List<String> urlPatternsAD=new ArrayList<String>();
-			urlPatternsAD.add("/DatVe");
-			
-			
 			//cấu hình cho khách hầng
 			List<String> urlPatternsCU=new ArrayList<String>();
-			
+			urlPatternsCU.add("/DatVe");
 			
 			map.put("ad", urlPatternsAD);
 			map.put("cu",urlPatternsCU);

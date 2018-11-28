@@ -2,12 +2,7 @@ package com.WebXemPhim.Controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.WebXemPhim.Dao.FilmDao;
-import com.WebXemPhim.model.Film;
+
 
 /**
  * Servlet implementation class AddFilmServlet
@@ -38,8 +33,8 @@ public class AddFilmServlet extends HttpServlet {
 	
 	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tieuDe=request.getParameter("tieuDe");  
-		String daoDien=request.getParameter("daoDien");
+			String tieuDe=request.getParameter("tieuDe");  
+			String daoDien=request.getParameter("daoDien");
 		  String dienVien=request.getParameter("dienVien");
 		  String trangThai=request.getParameter("trangThai[]");
 		  String moTa=request.getParameter("moTa");
@@ -53,16 +48,13 @@ public class AddFilmServlet extends HttpServlet {
 		  
 		  java.sql.Date sqlDate = java.sql.Date.valueOf(ngayRaMatPhim);
 		
+		
+		
 		  int doTuoi=Integer.parseInt(request.getParameter("doTuoi"));
 		  FilmDao filmDao = null;
-		  try {
-			 filmDao=new FilmDao();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		  filmDao=new FilmDao();
 		  PrintWriter out =response.getWriter();
-		  if(filmDao.addFilm(tieuDe, daoDien, dienVien, moTa, doDai, sqlDate, doTuoi, trangThai, 2,
+		  if(FilmDao.addFilm(tieuDe, daoDien, dienVien, moTa, doDai, sqlDate, doTuoi, trangThai, 2,
 				  url_Trailer, url_Image, quocGia, giaVe))
 		  {
 			  out.print("1");

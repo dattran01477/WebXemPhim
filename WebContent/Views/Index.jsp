@@ -67,11 +67,16 @@
 				</form>
 				<div class="nav-wrapper">
 					<ul class="nav flex-column">
-						<li class="nav-item" id="proFile"><a class="nav-link "
+					<c:if test="${not empty loginedUser}">	
+					<c:forEach items="${loginedUser.roles}" var="role">
+						 <c:if test = "${role eq 'cu'}">
+							<li class="nav-item" id="proFile"><a class="nav-link "
 							href="#"> <i class="material-icons">edit</i> <span>Thông
 									Tin Cá Nhân</span>
 						</a></li>
-						<li class="nav-item" id="mnFilm"><a class="nav-link "
+						</c:if>
+						 <c:if test = "${role eq 'ad'}">
+							<li class="nav-item" id="mnFilm"><a class="nav-link "
 							href="#"> <i class="material-icons">vertical_split</i> <span>Quản
 									Lý Phim</span>
 						</a></li>
@@ -92,19 +97,33 @@
 									</a>
 								</div>
 						</a></li>
-						<li class="nav-item" id="mnScheduleFilm"><a class="nav-link "
+						<li class="nav-item dropdown" ><a
+							class="nav-link dropdown-toggle" id="dropdownMenuInput"
+							data-toggle="dropdown" href="#"> <i class="material-icons">trending_up</i>
+								<span>Quản Lý Giao Dịch</span>
+								<div class="dropdown-menu " aria-labelledby="dropdownMenuInput">
+									<a class="nav-link dropdown-item" href="#" id="mnNapXu" > <i
+										class="material-icons">add</i> <span>Nạp Xu Cho Tài Khoản</span>	
+								
+									</a> <a class="nav-link dropdown-item " href="#" id="mnLichSuGiaoDich" > <i
+										class="material-icons" >add</i> <span>Lịch Sử Giao Dịch</span>
+									</a>
+								</div>
+						</a></li>
+						<!-- <li class="nav-item" id="mnScheduleFilm"><a class="nav-link "
 							href="#"> <i class="material-icons">trending_up</i> <span>Quản
 									Lý giao dịch</span>
-						</a></li>
+						</a></li> -->
 						<li class="nav-item" id="mnPerson"><a class="nav-link "
 							href="#"> <i class="material-icons">person</i> <span>Quản
 									Lý Người Dùng</span>
 						</a></li>
-						<li class="nav-item" id="logout"><a class="nav-link "
-							href="#"> <i class="material-icons">view_module</i> <span>Đăng
-									Xuất</span>
-						</a></li>
-
+						</c:if>
+											 
+					</c:forEach>
+					</c:if>
+						
+						
 					</ul>
 				</div>
 			</aside>
@@ -175,8 +194,7 @@
 							aria-haspopup="true" aria-expanded="false"> <img
 								class="user-avatar rounded-circle mr-2"
 								src="${pageContext.request.contextPath}/Views/images/avatars/0.jpg"
-								alt="User Avatar"> <span class="d-none d-md-inline-block">Sierra
-									Brooks</span>
+								alt="User Avatar"> <span class="d-none d-md-inline-block">${loginedUser.user}</span>
 						</a>
 							<div class="dropdown-menu dropdown-menu-small">
 								<a class="dropdown-item" href="user-profile-lite.html"> <i
@@ -187,7 +205,7 @@
 									class="material-icons">note_add</i> Add New Post
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item text-danger" href="#"> <i
+								<a class="dropdown-item text-danger" href="Logout"> <i
 									class="material-icons text-danger">&#xE879;</i> Logout
 								</a>
 							</div></li>
@@ -241,7 +259,16 @@
 
 							$("#main_pn")
 									.load(
-											"${pageContext.request.contextPath}/Views/MainThongTinCaNhan.jsp");
+											"${pageContext.request.contextPath}/InfoUser");
+							$("#proFile")
+							.click(
+									function() {
+
+										$("#main_pn")
+												.load(
+														"${pageContext.request.contextPath}/InfoUser");
+
+									});
 							$("#mnFilm")
 									.click(
 											function() {
@@ -267,7 +294,15 @@
 														.load(
 																"${pageContext.request.contextPath}/Views/MainQuanLyNguoiDung.jsp");
 											});
-							mnRapChieu
+							$("#mnNapXu")
+							.click(
+									function() {
+
+										$("#main_pn")
+												.load(
+														"${pageContext.request.contextPath}/Views/MainNapXu.jsp");
+									});
+							
 							$("#mnRapChieu")
 									.click(
 											function() {
@@ -284,6 +319,10 @@
 												.load(
 														"${pageContext.request.contextPath}/Views/MainQuanLyPhongChieu.jsp");
 									});
+							
+							
+							//delete thì load lại trang
+							
 
 						});
 	</script>

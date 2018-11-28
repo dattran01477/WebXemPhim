@@ -1,6 +1,6 @@
 package com.WebXemPhim.Dao;
 
-import java.sql.Connection;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,28 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.WebXemPhim.jdbc.ConectionUtils;
-import com.WebXemPhim.model.Category;
+
 import com.WebXemPhim.model.XuatChieu;
 
-public class XuatChieuDao {
+public class XuatChieuDao  extends ConnectBasic {
 
-	static Connection conn;
-	public XuatChieuDao() throws ClassNotFoundException, SQLException {
-		
-	}
-	static
-	{
-		try {
-			init();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public static void init() throws ClassNotFoundException, SQLException {
-		 conn = ConectionUtils.getSqlConnect();
-	}
 	public  static List<XuatChieu> getListXuatChieu() throws ClassNotFoundException {
 		List<XuatChieu> XuatChieu = new ArrayList<>();
 		String sql = "select * from getXuatChieu()";

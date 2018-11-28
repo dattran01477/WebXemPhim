@@ -1,7 +1,7 @@
 package com.WebXemPhim.Controler;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,14 +32,7 @@ public class delete extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id=Integer.parseInt(request.getParameter("id"));
-		FilmDao filmdao=null;
-		try {
-			filmdao=new FilmDao();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		filmdao.deleteFilm(id);
+		FilmDao.deleteFilm(id);
 		RequestDispatcher dispatcher //
         = this.getServletContext()//
               .getRequestDispatcher("/Views/Index.jsp");

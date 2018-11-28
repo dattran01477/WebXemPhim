@@ -37,10 +37,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
     addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 
     function hideURLbar() { window.scrollTo(0, 1); }
     
+
 
 
 
@@ -65,6 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<%@include file="Header.jsp"%>
 
 							</div>
+							<div id="mainload">
 							<div class="col">
 								<div class="row justify-content-center">
 									<div
@@ -129,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</div>
 														<div class="text-center">
 															<h5 id="ngayXemPhim">
-															
+
 																<h5>
 														</div>
 													</div>
@@ -139,15 +142,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</div>
 														<div class="text-center">
 															<h5 id="tongGia">
-																
+
 																<h5>
 														</div>
 													</div>
 
 												</div>
-												<div class="col-md-5 col-3 ml-auto mt-3">
-													<button type="button" class="btn btn-secondary ">Thanh
-														Toán</button>
+												<div class="card-footer ">
+												<input type="text" id="sdtDatVe" class="form-control" placeholder="Số Điện Thoại:" aria-label="Số Điện Thoại:" aria-describedby="basic-addon2">
+												</div>
+												<div class="col-md-6	 col-3 ml-auto mt-3">
+													<button type="button" class="btn btn-secondary "
+														id="btnThanhToan">Thanh Toán</button>
 
 												</div>
 
@@ -159,7 +165,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 								</div>
 							</div>
-							<div class="footer"></div>
+							</div>
+							
+							<div class=""></div>
 						</div>
 					</div>
 				</div>
@@ -231,6 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		var giaTien=95000;
 		var tongTien=0;
 		var soVe=0;
+		var idXC=${idXC};
 		var tenFilm='${tenPhim}';
 		var ngayXemPhim='${ngayXemPhim}';
 		var idFilm=${idFilm};
@@ -271,6 +280,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     		$(this).attr("isSelect","0");
     		}    	
 			});
+		$("#btnThanhToan").click(function(event) {
+			 $.ajax({
+                 url: '${pageContext.request.contextPath}/ThanhToan',
+                 
+                 data: {idFilm:idFilm,arraySelectSeat:arraySelectSeat,tongTien:tongTien,ngayXemPhim:ngayXemPhim,idXC:idXC,sdtDatVe:$("#sdtDatVe").val()},
+                 dataType:"html",
+                 success:function(data){
+                 	
+                	 
+                	 
+                	if(data=="1")
+                		{
+                		
+                		$("#mainload")
+						.load(
+								"${pageContext.request.contextPath}/ViewsWeb/ModalSuccessful%20.jsp");
+                		 var i=5;
+                         var interval_obj = setInterval(function(){
+                            i=i-1;
+                            $("#idSecond").empty();
+                            $("#idSecond").text(i);
+                           if(i==0)
+                           {
+                        	   window.location.href = "${pageContext.request.contextPath}";
+                        	   clearInterval(interval_obj);
+                           }
+                            
+                            
+                         },1500);
+                		}
+                	
+                 //End loop khủng khiếp!
+
+                 	
+                 }
+             });
+	});
 		
 	});
 	</script>

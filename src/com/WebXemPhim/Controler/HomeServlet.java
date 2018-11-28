@@ -2,14 +2,11 @@ package com.WebXemPhim.Controler;
 
 import java.util.List;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+
 
 import com.WebXemPhim.Dao.FilmDao;
 import com.WebXemPhim.Dao.RapChieuDao;
-import com.WebXemPhim.jdbc.*;
+
 import com.WebXemPhim.model.*;
 
 import javax.servlet.RequestDispatcher;
@@ -37,27 +34,16 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Category> category = null;
-		Connector connector;
+		
 		Film flim=null;
 		List<Film> filmsDangChieu=null;
 		List<Film> filmsChuanBiChieu=null;
 		List<String> listKhuVuc=RapChieuDao.getDiaDiem();
-		FilmDao FilmUltis = null;
-		try {
-			FilmUltis = new FilmDao();
-		} catch (ClassNotFoundException | SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			connector = new Connector();
-			flim =FilmUltis.getFilmHot() ;
-			filmsDangChieu=FilmUltis.getFilmDangChieu();
-			filmsChuanBiChieu=FilmUltis.getFilmChuanBiChieu();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		
+		flim =FilmDao.getFilmHot() ;
+		filmsDangChieu=FilmDao.getFilmDangChieu();
+		filmsChuanBiChieu=FilmDao.getFilmChuanBiChieu();
 		
 		
 		

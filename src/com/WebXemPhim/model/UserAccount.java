@@ -14,8 +14,54 @@ public class UserAccount {
 		this.roles=new ArrayList<String>();
 		this.roles = roles;
 	}
+	public String getTen() {
+		return ten;
+	}
+
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
+
+	public int getTuoi() {
+		return tuoi;
+	}
+
+	public void setTuoi(int tuoi) {
+		this.tuoi = tuoi;
+	}
+
+	public String getSdt() {
+		return sdt;
+	}
+
+	public void setSdt(String sdt) {
+		this.sdt = sdt;
+	}
+
+	public String getGioiTinh() {
+		return gioiTinh;
+	}
+
+	public void setGioiTinh(String gioiTinh) {
+		this.gioiTinh = gioiTinh;
+	}
+
+	public String getDiaChi() {
+		return diaChi;
+	}
+
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+	private String ten;
+	private int tuoi;
+	private String sdt;
+	private String gioiTinh;
+	private String diaChi;
 	private int id_Account;
 	private String user;
+	private int soDuTK;
+	private String email;
 	public String getUser() {
 		return user;
 	}
@@ -39,6 +85,20 @@ public class UserAccount {
 	}
 	public void setId_Account(int id_Account) {
 		this.id_Account = id_Account;
+	}
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getSoDuTK() {
+		return soDuTK;
+	}
+
+	public void setSoDuTK(int soDuTK) {
+		this.soDuTK = soDuTK;
 	}
 	private String pass;
 	private List<String> roles;
