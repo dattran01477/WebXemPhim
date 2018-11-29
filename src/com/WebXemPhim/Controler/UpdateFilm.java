@@ -62,7 +62,7 @@ public class UpdateFilm extends HttpServlet {
 	  int doDai=Integer.parseInt(request.getParameter("doDai"));
 	  String quocGia=request.getParameter("quocGia");
 	  int giaVe=Integer.parseInt(request.getParameter("giaVe"));
-	  String tenDanhMuc=request.getParameter("tenDanhMuc[]");
+	  String tenDanhMuc=request.getParameter("tenDanhMuc");
 	  String url_Image=request.getParameter("url_Image");
 	  String ngayRaMatPhim = request.getParameter("ngayRaMatPhim");
 	  int idFilm=Integer.parseInt(request.getParameter("idFilm"));

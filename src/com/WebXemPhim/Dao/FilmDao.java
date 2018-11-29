@@ -320,5 +320,23 @@ public class FilmDao extends ConnectBasic {
 			return false;
 	
 	}
+	public static int getIdFilm(String tenPhim) {
+		String sql = "select id_Phim  from Phim where tieuDe=?";
+		int id=-1;	
+		try {
+
+			java.sql.Statement statement = conn.createStatement();
+			PreparedStatement pre=conn.prepareStatement(sql);
+			pre.setString(1, tenPhim);
+			ResultSet rs = pre.executeQuery();
+			while (rs.next()) {
+				id=rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		
+		}
+		return id;
+	}
 
 }

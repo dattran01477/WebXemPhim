@@ -16,8 +16,10 @@ import java.util.Map;
 import java.util.Set;
 
 import com.WebXemPhim.Dao.ConnectBasic;
+import com.WebXemPhim.Dao.PhongChieuDao;
 import com.WebXemPhim.Dao.RoleDao;
 import com.WebXemPhim.Dao.XuatChieuDao;
+import com.WebXemPhim.model.PhongChieu;
 import com.WebXemPhim.model.XuatChieu;
 import com.google.gson.Gson;
 
@@ -53,6 +55,17 @@ public class main1 extends ConnectBasic {
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}*/
+		SimpleDateFormat sdf1 = new SimpleDateFormat("hh:mm");
+		java.util.Date  dateTemp1 = null;
+		try {
+			dateTemp1 = sdf1.parse("20:30");
+		
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		java.sql.Time sqltime = new java.sql.Time(dateTemp1.getTime());
+		XuatChieuDao.addXuatChieu(2,6,sqltime);
 		
 
 	

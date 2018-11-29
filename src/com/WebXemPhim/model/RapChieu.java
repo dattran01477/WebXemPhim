@@ -6,6 +6,7 @@ public class RapChieu {
 		return id_RapChieu;
 	}
 	public void setId_RapChieu(int id_RapChieu) {
+		
 		this.id_RapChieu = id_RapChieu;
 	}
 	public String getDiaDiem() {

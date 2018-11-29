@@ -40,8 +40,19 @@
 	</div>
 </div>
 <div class="review-slider">
+
 	<div class="home-title mb-3">
 		<h2>movie selection</h2>
+	</div>
+	<div>
+		 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
 	</div>
 	<ul id="flexiselDemo1">
 		<c:forEach items="${flimsDangChieu}" var="Film">

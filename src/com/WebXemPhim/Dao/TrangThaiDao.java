@@ -54,5 +54,25 @@ public class TrangThaiDao  extends ConnectBasic {
 		}
 		return id_TrangThai;
 	}
+	public static String getNameTrangThai(int id_TrangThai)
+	{
+		String sql = "select tenTrangThai from TrangThai where id_TrangThai=?";
+		String nameTrangThai=null;	
+		try {
+
+			@SuppressWarnings("unused")
+			java.sql.Statement statement = conn.createStatement();
+			PreparedStatement pre=conn.prepareStatement(sql);
+			pre.setInt(1, id_TrangThai);
+			ResultSet rs = pre.executeQuery();
+			while (rs.next()) {
+				nameTrangThai=rs.getString(1);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		
+		}
+		return nameTrangThai;
+	}
 
 }

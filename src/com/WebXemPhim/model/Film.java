@@ -2,6 +2,9 @@ package com.WebXemPhim.model;
 
 import java.sql.Date;
 
+import com.WebXemPhim.Dao.CategoryFilm;
+import com.WebXemPhim.Dao.TrangThaiDao;
+
 public class Film {
 
 	
@@ -26,6 +29,7 @@ public class Film {
 	private String daoDien;
 	private String dienVien;
 	private int id_TrangThai;
+	private String tenTrangThai;
 	private String moTa;
 	public String getUrlTrailer() {
 		return urlTrailer;
@@ -44,6 +48,7 @@ public class Film {
 	}
 	public void setId_DanhMucPhim(int id_DanhMucPhim) {
 		this.id_DanhMucPhim = id_DanhMucPhim;
+		this.tenDanhMuc=CategoryFilm.getNameDanhMuc(id_DanhMucPhim);
 	}
 	public String getUrl_Image() {
 		return url_Image;
@@ -57,6 +62,7 @@ public class Film {
 	private String quocGia;
 	private int giaVe;
 	private int id_DanhMucPhim;
+	private String tenDanhMuc;
 	private String url_Image;
 	public String getTieuDe() {
 		return tieuDe;
@@ -81,6 +87,7 @@ public class Film {
 	}
 	public void setId_TrangThai(int id_TrangThai) {
 		this.id_TrangThai = id_TrangThai;
+		this.tenTrangThai=TrangThaiDao.getNameTrangThai(id_TrangThai);
 	}
 	public String getMoTa() {
 		return moTa;
@@ -115,6 +122,18 @@ public class Film {
 	}
 	public void setNgayRaMatPhim(Date ngayRaMatPhim) {
 		this.ngayRaMatPhim = ngayRaMatPhim;
+	}
+	public String getTenTrangThai() {
+		return tenTrangThai;
+	}
+	public void setTenTrangThai(String tenTrangThai) {
+		this.tenTrangThai = tenTrangThai;
+	}
+	public String getTenDanhMuc() {
+		return tenDanhMuc;
+	}
+	public void setTenDanhMuc(String tenDanhMuc) {
+		this.tenDanhMuc = tenDanhMuc;
 	}
 	
 

@@ -243,60 +243,63 @@
 									<form class="add-new-post">
 										<label>Tiêu đề phim:</label> <input
 											class="form-control form-control-lg mb-3" type="text"
-											placeholder="Tiêu đề phim" name="tieuDe" value="${film.tieuDe}">
-											<label>Giá vé:</label> <input
+											placeholder="Tiêu đề phim" name="tieuDe"
+											value="${film.tieuDe}"> <label>Giá vé:</label> <input
 											class="form-control form-control-lg mb-3" type="number"
 											placeholder="Giá Vé" name="giaVe" value="${film.giaVe}">
-											<label>Độ dài phim:</label> <input
+										<label>Độ dài phim:</label> <input
 											class="form-control form-control-lg mb-3" type="number"
 											placeholder="Do dai" name="doDai" value="${film.doDai}">
-										<div
-											class="row justify-content-center   align-items-center">
+										<div class="row justify-content-center   align-items-center">
 											<div class="col-lg-4 col-md-4">
-											<label>Đạo diễn:</label>
-												<input class="form-control form-control-lg mb-3" type="text"
-													placeholder="Đạo diễn" name="daoDien" value="${film.daoDien}">
+												<label>Đạo diễn:</label> <input
+													class="form-control form-control-lg mb-3" type="text"
+													placeholder="Đạo diễn" name="daoDien"
+													value="${film.daoDien}">
 											</div>
 											<div class="col-lg-4 col-md-4">
-											<label>Độ tuổi:</label>
-												<input class="form-control form-control-lg mb-3"
-													type="number" placeholder="Độ tuổi" name="doTuoi" value="${film.doTuoi}">
+												<label>Độ tuổi:</label> <input
+													class="form-control form-control-lg mb-3" type="number"
+													placeholder="Độ tuổi" name="doTuoi" value="${film.doTuoi}">
 											</div>
 											<div class="col-lg-4 col-md-3">
-												<label>Quốc gia:</label>
-														<select class="form-control" id="sel2"
-															name="quocGia" value="${film.quocGia}">
-															<option class="dropdown-item">Việt Nam</option>
-															<option class="dropdown-item">Lào</option>
-															<option class="dropdown-item">Campuchia</option>
-															<option class="dropdown-item">Mỹ</option>
-															<option class="dropdown-item">Ấn Độ</option>
-														</select>
-												
+												<label>Quốc gia:</label> <select class="form-control"
+													id="sel2" name="quocGia" value="${film.quocGia}">
+													<option class="dropdown-item">Việt Nam</option>
+													<option class="dropdown-item">Lào</option>
+													<option class="dropdown-item">Campuchia</option>
+													<option class="dropdown-item">Mỹ</option>
+													<option class="dropdown-item">Ấn Độ</option>
+												</select>
+
 											</div>
 										</div>
-										<label>Diễn viên:</label>
-										<input class="form-control form-control-lg mb-3" type="text"
-											placeholder="Diễn viên" name="dienVien" value="${film.dienVien}">
+										<label>Diễn viên:</label> <input
+											class="form-control form-control-lg mb-3" type="text"
+											placeholder="Diễn viên" name="dienVien"
+											value="${film.dienVien}">
 										<div
 											class="row justify-content-md-center  justify-content-lg-center align-items-center">
 											<div class="col-lg-7 col-md-7">
-											<label>Link Trailer:</label>
-												<input class="form-control form-control-lg mb-3" type="url"
-													placeholder="Link trailer phim" name="url_Trailer" value="${film.urlTrailer}">
+												<label>Link Trailer:</label> <input
+													class="form-control form-control-lg mb-3" type="url"
+													placeholder="Link trailer phim" name="url_Trailer"
+													value="${film.urlTrailer}">
 											</div>
 											<div class="col-lg-5 col-md-5">
-											<label>Link hình ảnh:</label>
-												<input class="form-control form-control-lg mb-3" type="url"
-													placeholder="Hình ảnh phim" name="url_Image" value="${film.url_Image}">
+												<label>Link hình ảnh:</label> <input
+													class="form-control form-control-lg mb-3" type="url"
+													placeholder="Hình ảnh phim" name="url_Image"
+													value="${film.url_Image}">
 											</div>
 										</div>
 										<div class="col-lg-5 col-md-6 pl-0">
 											<input class="form-control form-control-lg mb-3" type="date"
-												placeholder="Ngày ra mắt phim" name="ngayRaMatPhim" value="${film.ngayRaMatPhim}">
+												placeholder="Ngày ra mắt phim" name="ngayRaMatPhim"
+												value="${film.ngayRaMatPhim}">
 										</div>
 										<div id="editor-container" class="add-new-post__editor mb-1">
-										<label >Mô tả:</label>
+											
 										</div>
 									</form>
 								</div>
@@ -308,9 +311,10 @@
 									<span>Danh mục phim</span>
 								</div>
 								<div class="card-body border-bottom">
-									<select multiple class="form-control" id="sel_Danhmuc"
-										name="tenDanhMuc">
+									<select  class="form-control" id="sel_Danhmuc"
+										name="tenDanhMuc" value="${film.tenDanhMuc}">
 									</select>
+									
 								</div>
 								<div class="card-footer">
 									<li class="list-group-item d-flex px-3">
@@ -334,22 +338,22 @@
 								</div>
 
 								<div class="row  px-2  align-items-center mb-4">
-									
+
 									<div class=" mb-1 col-12 ">
-										<label>Trạng thái:</label>
-											<select class="form-control" id="sel_TrangThai"
-												name="trangThai" value="${film.trangThai}">
-	
-											</select>
+										<label>Trạng thái:</label> <select class="form-control"
+											id="sel_TrangThai" name="trangThai"
+											value="${film.tenTrangThai}">
+
+										</select>
 									</div>
 								</div>
 
 							</div>
 							<div class="float-right">
-							<button class="btn btn-info " type="button" id="btnCapNhat">
-								Cập nhật</button>
+								<button class="btn btn-info " type="button" id="btnCapNhat">
+									Cập nhật</button>
 							</div>
-							
+
 						</div>
 
 					</div>
@@ -389,225 +393,178 @@
 		src="${pageContext.request.contextPath}/Views/scripts/app/app-blog-new-post.1.1.0.js"></script>
 
 	<script>
-	function init()
-	{
-		
-$("#proFile")
-.click(
+		function init() {
+
+			$("#proFile").click(
+					function() {
+
+						$("#main_pn").load(
+								"${pageContext.request.contextPath}/InfoUser");
+
+					});
+			$("#mnFilm").click(function() {
+
+				$("#main_pn").load("${pageContext.request.contextPath}/table");
+				
+
+			});
+			$("#mnScheduleFilm")
+					.click(
+							function() {
+
+								$("#main_pn")
+										.load(
+												"${pageContext.request.contextPath}/Views/MainQuanLyLichChieu.jsp");
+							});
+			$("#mnPerson")
+					.click(
+							function() {
+
+								$("#main_pn")
+										.load(
+												"${pageContext.request.contextPath}/Views/MainQuanLyNguoiDung.jsp");
+							});
+			$("#mnNapXu")
+					.click(
+							function() {
+
+								$("#main_pn")
+										.load(
+												"${pageContext.request.contextPath}/Views/MainNapXu.jsp");
+							});
+
+			$("#mnRapChieu")
+					.click(
+							function() {
+
+								$("#main_pn")
+										.load(
+												"${pageContext.request.contextPath}/Views/MainQuanLyRapChieu.jsp");
+							});
+			$("#mnPhongChieu")
+					.click(
+							function() {
+
+								$("#main_pn")
+										.load(
+												"${pageContext.request.contextPath}/Views/MainQuanLyPhongChieu.jsp");
+							});
+		}
+		function loadCategory() {
+			$("#sel_Danhmuc").empty();
+
+			$.ajax({
+				url : '${pageContext.request.contextPath}/Getcategory',
+				data : {
+					categoryName : $('#CategoryName').val()
+				},
+				dataType : 'html',
+				success : function(data) {
+					var obj = $.parseJSON(data);
+					$.each(obj, function(index, el) {
+
+						if (el.tenDanhMuc =="${film.tenDanhMuc}") {
+							$(
+									"<option selected class='dropdown-item'>"
+											+ el.tenDanhMuc + "</option>")
+									.appendTo($("#sel_Danhmuc"));
+						} else {
+							$(
+									"<option class='dropdown-item'>"
+											+ el.tenDanhMuc + "</option>")
+									.appendTo($("#sel_Danhmuc"));
+						}
+
+					});
+				}
+			});
+			$("#CategoryName").val("");
+		}
+		function loadTrangThai() {
+			$("#sel_TrangThai").empty();
+			$.ajax({
+				url : '${pageContext.request.contextPath}/TrangThai',
+				dataType : 'html',
+				success : function(data) {
+					var obj = $.parseJSON(data);
+					$.each(obj, function(index, el) {
+						if (el == "${film.tenTrangThai}") {
+							$(
+									"<option selected class='dropdown-item'>"
+											+ el + "</option>").appendTo(
+									$("#sel_TrangThai"));
+						} else {
+							$(
+									"<option class='dropdown-item'>" + el
+											+ "</option>").appendTo(
+									$("#sel_TrangThai"));
+						}
+
+					});
+				}
+			});
+
+			//load mô tả
+			$('.ql-editor').html('${film.moTa}');
+		}
+		$(document).ready(
+
 		function() {
+			loadCategory();
+			loadTrangThai();
+			init();
+			$("#addCategory").click(function() {
+				loadCategory();
+			});
 
-			$("#main_pn")
-					.load(
-							"${pageContext.request.contextPath}/InfoUser");
+			$("#btnCapNhat").click(function() {
+				var idFilm = ${film.id};
+				var tieuDe = $('[name="tieuDe"]').val();
+				var daoDien = $('[name="daoDien"]').val();
+				var dienVien = $('[name="dienVien"]').val();
+				var trangThai = $('[name="trangThai"]').val();
+				var moTa = $('.ql-editor').html();
+				var url_Trailer = $('[name="url_Trailer"]').val();
+				var doDai = $('[name="doDai"]').val();
+				var quocGia = $('[name="quocGia"]').val();
+				var giaVe = $('[name="giaVe"]').val();
+				var tenDanhMuc = $('[name="tenDanhMuc"]').val();
+				var url_Image = $('[name="url_Image"]').val();
+				var ngayRaMatPhim = $('[name="ngayRaMatPhim"]').val();
+				var doTuoi = $('[name="doTuoi"]').val();
 
-		});
-$("#mnFilm")
-		.click(
-				function() {
-
-					$("#main_pn")
-							.load(
-									"${pageContext.request.contextPath}/table");
-
-				});
-$("#mnScheduleFilm")
-		.click(
-				function() {
-
-					$("#main_pn")
-							.load(
-									"${pageContext.request.contextPath}/Views/MainQuanLyLichChieu.jsp");
-				});
-$("#mnPerson")
-		.click(
-				function() {
-
-					$("#main_pn")
-							.load(
-									"${pageContext.request.contextPath}/Views/MainQuanLyNguoiDung.jsp");
-				});
-$("#mnNapXu")
-.click(
-		function() {
-
-			$("#main_pn")
-					.load(
-							"${pageContext.request.contextPath}/Views/MainNapXu.jsp");
-		});
-
-$("#mnRapChieu")
-		.click(
-				function() {
-
-					$("#main_pn")
-							.load(
-									"${pageContext.request.contextPath}/Views/MainQuanLyRapChieu.jsp");
-				});
-$("#mnPhongChieu")
-.click(
-		function() {
-
-			$("#main_pn")
-					.load(
-							"${pageContext.request.contextPath}/Views/MainQuanLyPhongChieu.jsp");
-		});
-	}
-	function loadCategory()
-	{
-		$("#sel_Danhmuc").empty();
-
-		$
-				.ajax({
-					url : '${pageContext.request.contextPath}/Getcategory',
+				$.ajax({
+					url : '${pageContext.request.contextPath}/Update',
+					type : 'POST',
 					data : {
-						categoryName : $(
-								'#CategoryName')
-								.val()
+						idFilm : idFilm,
+						tieuDe : tieuDe,
+						daoDien : daoDien,
+						dienVien : dienVien,
+						trangThai : trangThai,
+						moTa : moTa,
+						url_Trailer : url_Trailer,
+						doDai : doDai,
+						quocGia : quocGia,
+						giaVe : giaVe,
+						trangThai : trangThai,
+						tenDanhMuc : tenDanhMuc,
+						url_Image : url_Image,
+						ngayRaMatPhim : ngayRaMatPhim,
+						doTuoi : doTuoi
 					},
 					dataType : 'html',
-					success : function(
-							data) {
-						var obj = $
-								.parseJSON(data);
-						$
-								.each(
-										obj,
-										function(
-												index,
-												el) {
-											$(
-													"<option class='dropdown-item'>"
-															+ el.tenDanhMuc
-															+ "</option>")
-													.appendTo(
-															$("#sel_Danhmuc"));
-										});
+					success : function(data) {
+						if (data =='1') {
+							alert("Chỉnh sửa thành công");
+						} else {
+							alert("Lỗi rồi bạn ơi")
+						}
 					}
 				});
-		$("#CategoryName").val("");
-	}
-	function loadTrangThai()
-	{
-		$("#sel_TrangThai").empty();
-		$
-				.ajax({
-					url : '${pageContext.request.contextPath}/TrangThai',
-					dataType : 'html',
-					success : function(
-							data) {
-						var obj = $
-								.parseJSON(data);
-						$
-								.each(
-										obj,
-										function(
-												index,
-												el) {
-											$(
-													"<option class='dropdown-item'>"
-															+ el
-															+ "</option>")
-													.appendTo(
-															$("#sel_TrangThai"));
-										});
-					}
-				});	
-		
-		//load mô tả
-		$('.ql-editor')
-		.html("${film.moTa}");
-	}
-		$(document)
-				.ready(
 
-						function() {
-							loadCategory();	
-							loadTrangThai();
-							init();
-							
-							$("#addCategory")
-									.click(
-											function() {
-												loadCategory();
-											});
-							
-
-							$("#btnCapNhat")
-									.click(
-											function() {
-												var idFilm = ${film.id}
-												
-												var tieuDe = $(
-														'[name="tieuDe"]')
-														.val();
-												var daoDien = $(
-														'[name="daoDien"]')
-														.val();
-												var dienVien = $(
-														'[name="dienVien"]')
-														.val();
-												var trangThai = $(
-														'[name="trangThai"]')
-														.val();
-												var moTa = $('.ql-editor')
-														.html();
-												var url_Trailer = $(
-														'[name="url_Trailer"]')
-														.val();
-												var doDai = $('[name="doDai"]')
-														.val();
-												var quocGia = $(
-														'[name="quocGia"]')
-														.val();
-												var giaVe = $('[name="giaVe"]')
-														.val();
-												var tenDanhMuc = $(
-														'[name="tenDanhMuc"]')
-														.val();
-												var url_Image = $(
-														'[name="url_Image"]')
-														.val();
-												var ngayRaMatPhim = $(
-														'[name="ngayRaMatPhim"]')
-														.val();
-												var doTuoi = $(
-														'[name="doTuoi"]')
-														.val();
-
-												$
-														.ajax({
-															url : '${pageContext.request.contextPath}/Update',
-															type : 'POST',
-															data : {
-																idFilm : idFilm,
-																tieuDe : tieuDe,
-																daoDien : daoDien,
-																dienVien : dienVien,
-																trangThai : trangThai,
-																moTa : moTa,
-																url_Trailer : url_Trailer,
-																doDai : doDai,
-																quocGia : quocGia,
-																giaVe : giaVe,
-																trangThai:trangThai,
-																tenDanhMuc : tenDanhMuc,
-																url_Image : url_Image,
-																ngayRaMatPhim : ngayRaMatPhim,
-																doTuoi : doTuoi
-															},
-															dataType : 'html',
-															success : function(
-																	data) {
-																if (data = '1') {
-																	alert("Chỉnh sửa thành công");
-																} else {
-																	alert("Lỗi rồi bạn ơi")
-																}
-															}
-														});
-
-											});
-						});
+			});
+		});
 	</script>
 </body>
 

@@ -80,6 +80,10 @@
 							href="#"> <i class="material-icons">vertical_split</i> <span>Quản
 									Lý Phim</span>
 						</a></li>
+						<li class="nav-item" id="mnCategoryFilm"><a class="nav-link "
+							href="#"> <i class="material-icons">vertical_split</i> <span>Quản
+									Lý Danh Mục Phim</span>
+						</a></li>
 						<li class="nav-item" id="mnScheduleFilm"><a class="nav-link "
 							href="#"> <i class="material-icons">note_add</i> <span>Quản
 									Lý Lịch Chiếu</span>
@@ -303,21 +307,33 @@
 														"${pageContext.request.contextPath}/Views/MainNapXu.jsp");
 									});
 							
-							$("#mnRapChieu")
-									.click(
-											function() {
+							
+							
+							
+							$("#mnCategoryFilm")
+							.click(
+									function() {
 
-												$("#main_pn")
-														.load(
-																"${pageContext.request.contextPath}/Views/MainQuanLyRapChieu.jsp");
-											});
+										$("#main_pn")
+												.load(
+														"${pageContext.request.contextPath}/DanhMucPhimServlet");
+									});
+							
 							$("#mnPhongChieu")
 							.click(
 									function() {
 
 										$("#main_pn")
 												.load(
-														"${pageContext.request.contextPath}/Views/MainQuanLyPhongChieu.jsp");
+														"${pageContext.request.contextPath}/PhongChieuServlet");
+									});
+							$("#mnRapChieu")
+							.click(
+									function() {
+
+										$("#main_pn")
+												.load(
+														"${pageContext.request.contextPath}/RapChieuPhim");
 									});
 							
 							

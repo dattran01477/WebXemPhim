@@ -83,6 +83,26 @@ public class CategoryFilm extends ConnectBasic {
 		return -1;
 
 	}
+	public static String getNameDanhMuc(int id_DanhMuc) {
+		
+		String name=null;
+			String sql = "select tenDanhMuc from DanhMucPhim where id_DanhMucPhim=" + id_DanhMuc + "";
+			try {
+
+				java.sql.Statement statement = conn.createStatement();
+				ResultSet rs = statement.executeQuery(sql);
+				while(rs.next())
+				{
+					name= rs.getString(1);
+				}
+				
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		
+		return name;
+
+	}
 	public static boolean deleteDanhMucPhim(int id) {
 	
 			String sql="Exec dbo.DeleteMenuFilm ?";

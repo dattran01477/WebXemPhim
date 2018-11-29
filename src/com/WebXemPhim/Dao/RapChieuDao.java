@@ -184,4 +184,20 @@ public class RapChieuDao extends ConnectBasic {
 			return false;
 		
 	}
+	public static String getTenPhongChieu(int idRapChieu) {
+		String sql = "select _name from PhongChieu where id_RapChieu=?";
+		String tenRap = null;
+		try {
+			PreparedStatement pre = conn.prepareStatement(sql);
+			pre.setInt(1, idRapChieu);
+			ResultSet rs = pre.executeQuery();
+			while (rs.next()) {
+				tenRap = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+
+		}
+		return tenRap;
+	}
 }

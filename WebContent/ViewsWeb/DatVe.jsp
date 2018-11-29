@@ -310,6 +310,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             
                          },1500);
                 		}
+                	else
+                		{
+                		alert("số dư không đủ xin vui lòng nạp thêm tiền")
+                		}
                 	
                  //End loop khủng khiếp!
 

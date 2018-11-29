@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,5 +86,22 @@ public class XuatChieuDao  extends ConnectBasic {
 			System.out.println(e.getMessage());
 		}
 		return xcList;
+	}
+	public static boolean addXuatChieu(int idPhongChieu, int idFilm, Time time) {
+		
+		String sql="insert into XuatChieu values(?,?,?)";
+		try
+		{
+			PreparedStatement pre=conn.prepareStatement(sql);
+			pre.setInt(3, idPhongChieu);
+			pre.setInt(1, idFilm);
+			pre.setTime(2, time);
+			pre.execute();
+			return true;
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return false;
 	}
 }
