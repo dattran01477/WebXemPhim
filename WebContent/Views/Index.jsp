@@ -325,7 +325,7 @@
 
 										$("#main_pn")
 												.load(
-														"${pageContext.request.contextPath}/PhongChieuServlet");
+														"${pageContext.request.contextPath}/PhongChieu");
 									});
 							$("#mnRapChieu")
 							.click(

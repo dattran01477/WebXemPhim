@@ -71,68 +71,56 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-3 col-md-12">
-			<div class="card card-small mb-3">
-				<div class="card-header  border-bottom text-center text-justify">
-					<span>Danh mục phim</span>
-				</div>
-				<div class="card-body border-bottom">
-					<select multiple class="form-control" id="sel_Danhmuc"
-						name="tenDanhMuc">
-					</select>
-				</div>
-				<div class="card-footer">
-					<li class="list-group-item d-flex px-3">
-						<div class="input-group">
-							<input id="CategoryName" type="text" class="form-control"
-								placeholder="New category" aria-label="Add new category"
-								aria-describedby="basic-addon2">
-							<div class="input-group-append">
-								<button id="addCategory" class="btn btn-white px-2"
-									type="submit">
-									<i class="material-icons">add</i>
-								</button>
+			<div class="col-lg-3 col-md-12">
+							<div class="card card-small mb-3">
+								<div class="card-header  border-bottom text-center text-justify">
+									<span>Danh mục phim</span>
+								</div>
+								<div class="card-body border-bottom">
+									<select  class="form-control" id="sel_Danhmuc"
+										name="tenDanhMuc" >
+									</select>
+									
+								</div>
+								<div class="card-footer">
+									<li class="list-group-item d-flex px-3">
+										<div class="input-group">
+											<input id="CategoryName" type="text" class="form-control"
+												placeholder="New category" aria-label="Add new category"
+												aria-describedby="basic-addon2">
+											<div class="input-group-append">
+												<button id="addCategory" class="btn btn-white px-2"
+													type="submit">
+													<i class="material-icons">add</i>
+												</button>
+											</div>
+										</div>
+									</li>
+								</div>
 							</div>
+							<div class="card card-small mb-3">
+								<div class="card-header  border-bottom text-justify">
+									<span>Tùy chọn</span>
+								</div>
+
+								<div class="row  px-2  align-items-center mb-4">
+
+									<div class=" mb-1 col-12 ">
+										<label>Trạng thái:</label> <select class="form-control"
+							id="sel_TrangThai" name="trangThai">
+
+						</select>
+					</div>
+								</div>
+
+							</div>
+						
+
 						</div>
-					</li>
-				</div>
-			</div>
-			 <div class="card card-small mb-3">
-                                <div class="card-header  border-bottom text-center text-justify">
-                                    <span>Trạng Thái</span>
-                                </div>
-            
-                                <div class="row    align-items-center mb-4">
-                                     <div class="dropdown mb-1 col-6 text-center">
-                                        <button class="btn btn-primary dropdown-toggle col-9" type="button" id="btnTrangThai" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Chế Độ
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id=CmbTrangThai>
-                                            <select multiple class="form-control" id="sel_TrangThai" name="trangThai">
-                                                
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown mb-1 col-6 text-center">
-                                        <button class="btn btn-primary dropdown-toggle col-9" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Quyền Xem
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <select multiple class="form-control" id="sel2" name="country">
-                                                <option class="dropdown-item">Công Khai</option>
-                                                <option class="dropdown-item">Riêng tư</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    
-                                </div>
-
-                            </div>
                             <button class="btn btn-primary " type="button" id="btnThemPhim" >
                                             Thêm Phim
                                         </button>
-		</div>
+
 
 	</div>
 </div>
@@ -141,54 +129,66 @@
 <script
 	src="${pageContext.request.contextPath}/Views/scripts/app/app-blog-new-post.1.1.0.js"></script>
 <script>
+function loadCategory() {
+	$("#sel_Danhmuc").empty();
+
+	$.ajax({
+		url : '${pageContext.request.contextPath}/Getcategory',
+		data : {
+			categoryName : $('#CategoryName').val()
+		},
+		dataType : 'html',
+		success : function(data) {
+			var obj = $.parseJSON(data);
+			$.each(obj, function(index, el) {
+
+				if (el.tenDanhMuc =="${film.tenDanhMuc}") {
+					$(
+							"<option selected class='dropdown-item'>"
+									+ el.tenDanhMuc + "</option>")
+							.appendTo($("#sel_Danhmuc"));
+				} else {
+					$(
+							"<option class='dropdown-item'>"
+									+ el.tenDanhMuc + "</option>")
+							.appendTo($("#sel_Danhmuc"));
+				}
+
+			});
+		}
+	});
+	$("#CategoryName").val("");
+}
+function loadTrangThai() {
+	$("#sel_TrangThai").empty();
+	$.ajax({
+		url : '${pageContext.request.contextPath}/TrangThai',
+		dataType : 'html',
+		success : function(data) {
+			var obj = $.parseJSON(data);
+			$.each(obj, function(index, el) {
+				if (el == "${film.tenTrangThai}") {
+					$(
+							"<option selected class='dropdown-item'>"
+									+ el + "</option>").appendTo(
+							$("#sel_TrangThai"));
+				} else {
+					$(
+							"<option class='dropdown-item'>" + el
+									+ "</option>").appendTo(
+							$("#sel_TrangThai"));
+				}
+
+			});
+		}
+	});
+}
 	$(document).ready(
 			
 			
 			function() {
-				
-				$("#addCategory").click(
-						function() {
-							$("#sel_Danhmuc").empty();
-
-							$.ajax({
-								url : '${pageContext.request.contextPath}/Getcategory',
-								data : {
-									categoryName : $('#CategoryName').val()
-								},
-								dataType : 'html',
-								success : function(data) {
-									var obj = $.parseJSON(data);
-									$.each(obj, function(index, el) {
-										$(
-												"<option class='dropdown-item'>"
-														+ el.tenDanhMuc
-														+ "</option>")
-												.appendTo($("#sel_Danhmuc"));
-									});
-								}
-							});
-							$("#CategoryName").val("");
-
-						});
-				$("#btnTrangThai").click(function(event) {
-					$.ajax({
-						url : '${pageContext.request.contextPath}/TrangThai',
-						dataType : 'html',
-						success : function(data) {
-							var obj = $.parseJSON(data);
-							$.each(obj, function(index, el) {
-								$(
-										"<option class='dropdown-item'>"
-												+ el
-												+ "</option>")
-										.appendTo($("#sel_TrangThai"));
-							});
-						}
-					});
-					
-					
-				   });
-			
+				loadCategory();
+				loadTrangThai();
 				$("#btnThemPhim").click(
 						function() {
 							 var tieuDe=$('[name="tieuDe"]').val();

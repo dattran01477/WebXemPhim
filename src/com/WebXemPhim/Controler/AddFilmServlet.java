@@ -36,11 +36,11 @@ public class AddFilmServlet extends HttpServlet {
 			String tieuDe=request.getParameter("tieuDe");  
 			String daoDien=request.getParameter("daoDien");
 		  String dienVien=request.getParameter("dienVien");
-		  String trangThai=request.getParameter("trangThai[]");
+		  String trangThai=request.getParameter("trangThai");
 		  String moTa=request.getParameter("moTa");
 		  String url_Trailer=request.getParameter("url_Trailer");
 		  int doDai=Integer.parseInt(request.getParameter("doDai"));
-		  String quocGia=request.getParameter("quocGia[]");
+		  String quocGia=request.getParameter("quocGia");
 		  int giaVe=Integer.parseInt(request.getParameter("giaVe"));
 		  String tenDanhMuc=request.getParameter("tenDanhMuc");
 		  String url_Image=request.getParameter("url_Image");

@@ -164,17 +164,16 @@ public class RapChieuDao extends ConnectBasic {
 		return false;
 		
 	}
-	public static boolean InsertRapChieu(int id_RapChieu, String diaDiem, String tenRap, String loai) {
+	public static boolean InsertRapChieu(String diaDiem, String tenRap, String loai) {
 		
-				String sql="exec dbo.InsertRapChieu  ?,?,?,? ";
+				String sql="insert into Rapchieu(diaDiem,loai,tenRap) values(?,?,?) ";
 				
 				try
 				{
 					PreparedStatement ps=conn.prepareCall(sql);
-					ps.setInt(1,id_RapChieu);
-					ps.setString(2, diaDiem);
-					ps.setString(3,loai);
-					ps.setString(4,tenRap);
+					ps.setString(1, diaDiem);
+					ps.setString(2,loai);
+					ps.setString(3,tenRap);
 					return ps.executeUpdate()==1;
 					
 				}
@@ -184,6 +183,7 @@ public class RapChieuDao extends ConnectBasic {
 			return false;
 		
 	}
+	
 	public static String getTenPhongChieu(int idRapChieu) {
 		String sql = "select _name from PhongChieu where id_RapChieu=?";
 		String tenRap = null;

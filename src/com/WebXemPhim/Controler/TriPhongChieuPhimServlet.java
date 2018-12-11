@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.WebXemPhim.Dao.GheDao;
 import com.WebXemPhim.Dao.PhongChieuDao;
+import com.WebXemPhim.Dao.RapChieuDao;
 
 /**
  * Servlet implementation class TriPhongChieuPhimServlet
  */
-@WebServlet("/PhongChieuServlet")
+@WebServlet("/PhongChieu")
 public class TriPhongChieuPhimServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,7 +42,7 @@ public class TriPhongChieuPhimServlet extends HttpServlet {
 			switch(command) {
 			case "delete":
 				PhongChieuDao.deletePhongChieu((Integer.parseInt(id)));
-				url = "/Views/TriQuanLyPhongChieu.jsp";
+				url = "/TrangQuanLy";
 				break;
 			}
 
@@ -59,7 +61,6 @@ public class TriPhongChieuPhimServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String tenPhongChieu = request.getParameter("tenPhongChieu");
-		String soGheNgoi = request.getParameter("soGheNgoi");
 		String tenRap = request.getParameter("tenRap");
 		String id = request.getParameter("idRapChieu");
 		String command=request.getParameter("command");
@@ -71,8 +72,26 @@ public class TriPhongChieuPhimServlet extends HttpServlet {
 					url = "/Views/TriQuanLyPhongChieu.jsp";
 					break;
 			case "insert":
-				PhongChieuDao.InsertPhongChieu(tenPhongChieu,tenRap);
-						url = "/Views/TriQuanLyPhongChieu.jsp";
+				int soHang=Integer.parseInt(request.getParameter("soHang"));
+				int soCot=Integer.parseInt(request.getParameter("soCot"));
+				int idRapChieu=RapChieuDao.getId(tenRap);
+			
+				int idPhongChieuInsert=PhongChieuDao.InsertPhongChieu(tenPhongChieu,idRapChieu);
+				if(idPhongChieuInsert!=-1)
+				{
+					char a='A';
+					int count=1;
+				String	namePhongChieu=PhongChieuDao.getPhongChieu(idPhongChieuInsert).getTenPhongChieu();
+				for(int i=0;i<soHang;i++)
+					for(int j=0;j<soCot;j++)
+					{
+						String hang=String.valueOf((char)(a+i));
+						GheDao.insertGhe(namePhongChieu+count,hang,j, idPhongChieuInsert);
+						count=count+1;
+					}
+					
+				}
+						url = "/TrangQuanLy";
 						break;
 		
 			}

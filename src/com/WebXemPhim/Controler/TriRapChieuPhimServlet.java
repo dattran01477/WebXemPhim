@@ -80,15 +80,15 @@ public class TriRapChieuPhimServlet extends HttpServlet {
 			case "update":
 				RapChieuDao.UpdateRapChieu(Integer.parseInt(id_TrangThai), diaDiem, tenRap,
 						loai);
-				url = "/Views/TriQuanLyRapChieu.jsp";
+				url = "RapChieuPhim";
 				break;
 			case "insert":
-				RapChieuDao.InsertRapChieu(Integer.parseInt(id_TrangThai), diaDiem, tenRap,
+				RapChieuDao.InsertRapChieu(diaDiem, tenRap,
 						loai);
-				url = "/Views/TriQuanLyRapChieu.jsp";
+				url = "RapChieuPhim";
 				break;
 
-			}
+			}	
 
 		} catch (Exception ex) {
 

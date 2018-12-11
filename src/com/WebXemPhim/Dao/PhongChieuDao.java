@@ -114,6 +114,29 @@ public class PhongChieuDao extends ConnectBasic {
 		return list;
 
 	}
+	public static PhongChieu getPhongChieu(int idPhongChieu) {
+
+		String sql = "select * from PhongChieu where id_PhongChieu=?";
+
+		try {
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, idPhongChieu);
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				PhongChieu tk = new PhongChieu();
+				tk.setIdPhongChieu(rs.getInt(1));
+				tk.setTenPhongChieu(rs.getString(2));
+				tk.setSoGheNgoi(rs.getInt(4));
+				tk.setIdRapChieu(rs.getInt(3));
+				return tk;
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+		return null;
+
+	}
 
 	public static boolean deletePhongChieu(int id_PhongChieu) {
 
@@ -150,24 +173,41 @@ public class PhongChieuDao extends ConnectBasic {
 
 	}
 
-	public static boolean InsertPhongChieu( String tenPhongChieu, String tenRap) {
+	public static int InsertPhongChieu( String tenPhongChieu, int idRapChieu) {
 
-		String sql = "exec dbo.InsertPhongChieu ?,? ";
+		
+		String sql = "insert into PhongChieu(_name,id_RapChieu) OUTPUT Inserted.id_PhongChieu values(?,?) ";
 
 		try {
 			PreparedStatement ps = conn.prepareCall(sql);
 			ps.setString(1, tenPhongChieu);
-			ps.setString(2, tenRap);
-
-			return ps.executeUpdate() == 1;
+			ps.setInt(2, idRapChieu);
+			ResultSet rs=ps.executeQuery();
+			while (rs.next()) {
+				return rs.getInt(1);
+			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 		}
 		;
 
-		return false;
+		return -1;
 	}
+	public static int returnIdPhongChieuInsert()
+	{
+		String sql="SELECT SCOPE_IDENTITY()";
+		try {
+			PreparedStatement pre = conn.prepareStatement(sql);
+			ResultSet rs = pre.executeQuery();
+			while (rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 
+		}
+		return -1;
+	}
 	public static List<PhongChieu> getPhongChieu(String tenRapChieu) {
 		String sql="select * from PhongChieu,Rapchieu where PhongChieu.id_RapChieu=Rapchieu.id_RapChieu  and Rapchieu.tenRap=?";
 	List<PhongChieu> list=null;

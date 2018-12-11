@@ -30,19 +30,23 @@
 									</div>
 									<!-- Modal body -->
 									<div class="modal-body">
-										<form class="add-new-post" action="${pageContext.request.contextPath}/PhongChieuServlet"
+										<form class="add-new-post" action="${pageContext.request.contextPath}/PhongChieu"
 											method="post">
 											<input type="hidden" name="command" value="insert">  <input
 												class="form-control form-control-lg mb-3" type="text"
-												placeholder="Tên Phòng Chiếu" name="tenPhongChieu"> <input
-												class="form-control form-control-lg mb-3" type="text"
-												placeholder="Số ghế ngồi" name="soGheNgoi"> 
+												placeholder="Tên Phòng Chiếu" name="tenPhongChieu"> 
+												 <input
+												class="form-control form-control-lg mb-3" type="number"
+												placeholder="Số Hàng" name="soHang">
+												 <input
+												class="form-control form-control-lg mb-3" type="number"
+												placeholder="Số Cột" name="soCot">
 												<div class="card-body border-bottom">
 												<div
 													class="card-header  border-bottom text-center text-justify">
 													<span>Danh sach Rap Chieu</span>
 												</div>
-												<select multiple class="form-control" id="sel_TenRap"
+												<select class="form-control" id="sel_TenRap"
 													name="tenRap">
 													<%
 													
@@ -63,8 +67,6 @@
 											</div>
 										</form>
 									</div>
-
-
 								</div>
 							</div>
 

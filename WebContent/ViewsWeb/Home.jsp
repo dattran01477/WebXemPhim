@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <div class="header shadow  mb-5  rounded">
 
-	<div class="row mx-0 justify-content-center ">
+	<div class="row mx-0 justify-content-center" style=" background-image:
+		url(${flimHot.url_Image}); background-position:center; background-size: 100% 100%">
 		<div class="ImgPhimHot col-md-9 " id="AreaImageFilmHot">
-			<img src="${flimHot.url_Image}" id="ImageFilmHot">
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-3" style="background-color: #4D4B4B;opacity: 0.85">
 			<div class="header-info ">
 				<div class="">
 					<h1 style="text-align: center;">${flimHot.tieuDe}</h1>
@@ -19,23 +19,33 @@
 						Action, Comedy</p>
 					<p class="review">Release &nbsp;&nbsp;&nbsp;&nbsp;:
 						&nbsp;&nbsp; 7 November 2014</p>
-					<p class="special">${flimHot.moTa}</p>
-					<div class="row justify-content-center">
-						<a class="btn btn-info sizeBtn" href="#FilmHot"
-							data-toggle="modal" data-target="#FilmHot"><i
-							class="material-icons float-left" style="font-size: 28px">video_library</i><span
-							class="text-center">Xem Trailer</span></a> <a href="#"
-							class="btn btn-warning sizeBtn btnDatVe  py-auto"
-							tag="${flimHot.id}" data-toggle="modal"
-							data-target="#exampleModalLong"><i
-							class="material-icons float-left" style="font-size: 28px">developer_board</i><span
-							class="">Đặt Vé</span></a>
-						<!--Model đặt vé-->
-						<%@include file="modalDatVe.jsp"%>
-						<!--End modal-->
-					</div>
+					<div class="text-light">${flimHot.moTa}</div>
+
 				</div>
 			</div>
+
+
+			<div class="row justify-content-center ">
+				<a class="btn btn-info sizeBtn"
+					href="${pageContext.request.contextPath}/InfoFilm?idFilm=${flimHot.id}"><i
+					class="material-icons float-left" style="font-size: 28px">video_library</i><span
+					class="text-center">XemChiTiet</span></a> <a href="#"
+					class="btn btn-warning sizeBtn btnDatVe  py-auto"
+					tag="${flimHot.id}" data-toggle="modal"
+					data-target="#exampleModalLong"><i
+					class="material-icons float-left" style="font-size: 28px">developer_board</i><span
+					class="">Đặt Vé</span></a>
+				<!--Model đặt vé-->
+				<%@include file="modalDatVe.jsp"%>
+				<!--End modal-->
+			</div>
+
+
+
+
+
+
+
 		</div>
 	</div>
 </div>
@@ -43,16 +53,6 @@
 
 	<div class="home-title mb-3">
 		<h2>movie selection</h2>
-	</div>
-	<div>
-		 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div role="separator" class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
 	</div>
 	<ul id="flexiselDemo1">
 		<c:forEach items="${flimsDangChieu}" var="Film">

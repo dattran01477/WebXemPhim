@@ -38,10 +38,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
     addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 
     function hideURLbar() { window.scrollTo(0, 1); }
     
+
 
 
 
@@ -68,105 +70,107 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							</div>
 							<div id="mainload">
-							<div class="col">
-								<div class="row justify-content-center">
-									<div
-										class="card card-small mb-4 mx-0  col-sm-12 col-md-8 shadow p-3 mb-5 bg-white rounded">
+								<div class="col">
+									<div class="row justify-content-center">
+										<div
+											class="card card-small mb-4 mx-0  col-sm-12 col-md-8 shadow p-3 mb-5 bg-white rounded">
 
-										<div class="card-body">
-											<div class="col">
-												<div class="row justify-content-center ">
-													<div class="col-md-6 col-sm-12 ">
-														<div
-															class="row justify-content-center border mb-5  rounded-circle"
-															style="background-color: #D88A04;">
-															<h3>Screening</h3>
+											<div class="card-body">
+												<div class="col">
+													<div class="row justify-content-center ">
+														<div class="col-md-6 col-sm-12 ">
+															<div
+																class="row justify-content-center border mb-5  rounded-circle"
+																style="background-color: #D88A04;">
+																<h3>Screening</h3>
+															</div>
 														</div>
 													</div>
-												</div>
-												<div class="ChiTietGhe">
-													<div class="table-responsive">
-														<table class="table">
-															<thead id="headerbookingseat">
+													<div class="ChiTietGhe">
+														<div class="table-responsive">
+															<table class="table">
+																<thead id="headerbookingseat">
 
-															</thead>
-															<tbody id="bodybookingseat">
+																</thead>
+																<tbody id="bodybookingseat">
 
 
-															</tbody>
-														</table>
+																</tbody>
+															</table>
+														</div>
 													</div>
 												</div>
 											</div>
+											<div></div>
 										</div>
-										<div></div>
-									</div>
 
-									<div
-										class="card card-small ml-3 mb-4 mx-0  col-sm-12 col-md-3 shadow p-3 mb-5 bg-white rounded">
+										<div
+											class="card card-small ml-3 mb-4 mx-0  col-sm-12 col-md-3 shadow p-3 mb-5 bg-white rounded">
 
-										<div class="card-body">
-											<h4 class="card-title border-bottom text-center"
-												style="color: #D88A04;">Thông tin thanh toán</h4>
-											<div class="col">
-												<div class="border-bottom py-5">
-													<div class="row">
-														<div class="col-md-5 col-5 " style="color: #D88A04;">
-															<h5 class="mr-auto">Tên Phim:</h5>
+											<div class="card-body">
+												<h4 class="card-title border-bottom text-center"
+													style="color: #D88A04;">Thông tin thanh toán</h4>
+												<div class="col">
+													<div class="border-bottom py-5">
+														<div class="row">
+															<div class="col-md-5 col-5 " style="color: #D88A04;">
+																<h5 class="mr-auto">Tên Phim:</h5>
+															</div>
+															<div class="text-center">
+																<h5 id="tenPhim"></h5>
+															</div>
 														</div>
-														<div class="text-center">
-															<h5 id="tenPhim"></h5>
+														<div class="row">
+															<div class="col-md-5 col-5 " style="color: #D88A04;">
+																<h5 class="mr-auto">Chi tiết Vé:</h5>
+															</div>
+															<div class="text-center">
+																<h5 id="maGhe"></h5>
+															</div>
 														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-5 col-5 " style="color: #D88A04;">
-															<h5 class="mr-auto">Chi tiết Vé:</h5>
-														</div>
-														<div class="text-center">
-															<h5 id="maGhe"></h5>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-5 col-5 " style="color: #D88A04;">
-															<h5 class="mr-auto">Thời Gian:</h5>
-														</div>
-														<div class="text-center">
-															<h5 id="ngayXemPhim">
+														<div class="row">
+															<div class="col-md-5 col-5 " style="color: #D88A04;">
+																<h5 class="mr-auto">Thời Gian:</h5>
+															</div>
+															<div class="text-center">
+																<h5 id="ngayXemPhim">
 
-																<h5>
+																	<h5>
+															</div>
 														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-5 col-5 " style="color: #D88A04;">
-															<h5 class="mr-auto">Tổng tiền:</h5>
-														</div>
-														<div class="text-center">
-															<h5 id="tongGia">
+														<div class="row">
+															<div class="col-md-5 col-5 " style="color: #D88A04;">
+																<h5 class="mr-auto">Tổng tiền:</h5>
+															</div>
+															<div class="text-center">
+																<h5 id="tongGia">
 
-																<h5>
+																	<h5>
+															</div>
 														</div>
+
 													</div>
+													<div class="card-footer ">
+														<input type="text" id="sdtDatVe" class="form-control"
+															placeholder="Số Điện Thoại:" aria-label="Số Điện Thoại:"
+															aria-describedby="basic-addon2">
+													</div>
+													<div class="col-md-6	 col-3 ml-auto mt-3">
+														<button type="button" class="btn btn-secondary "
+															id="btnThanhToan">Thanh Toán</button>
+
+													</div>
+
 
 												</div>
-												<div class="card-footer ">
-												<input type="text" id="sdtDatVe" class="form-control" placeholder="Số Điện Thoại:" aria-label="Số Điện Thoại:" aria-describedby="basic-addon2">
-												</div>
-												<div class="col-md-6	 col-3 ml-auto mt-3">
-													<button type="button" class="btn btn-secondary "
-														id="btnThanhToan">Thanh Toán</button>
-
-												</div>
-
-
 											</div>
+
+
 										</div>
-
-
 									</div>
 								</div>
 							</div>
-							</div>
-							
+
 							<div class=""></div>
 						</div>
 					</div>
@@ -186,7 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	function loadSeat()
 	{
 		  var a='<th scope="col" class="border-0 text-center "></th>';
-		    var dsGheChon=[];
+			    var dsGheChon=[];
 		    var tongGhe=${tongGhe};
 		    var soHang=${soHang};
 		    var soCot=${soCot};
@@ -194,38 +198,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   <c:forEach items="${ListGheDaDat}" var="element"> 
 		    dsGheChon.push('${element}')
 		  </c:forEach>
-		    for(var i=0;i<soCot;i++)
-		    {
-		        a=a+'<th scope="col" class="border-0  px-0 py-0" width="30">'+i+'</th>'
-		    }
-		    $('<tr style="font-size:12px;">'+a+'</tr>').appendTo($("#headerbookingseat"));
-		    a="";
-		    var id="";
-		    var idTmp="";
-		    for(var i=65;i<65+soHang;i++)
-		    {
-		    	id=String.fromCharCode(i)+"_";
-		    	tmp=id;
-		        for(var j=0;j<soCot;j++)
-		    {
-		        	if(dem==tongGhe)
-		        		{
-		        		return;
-		        		}
-		        	else
-		        		{
-		        		id=tmp+j;
-		            	if(dsGheChon.includes(id))
-		            a=a+' <td class="py-0 px-0 " ><label class="checkbox-inline px-0"><i class="material-icons selectseat" tag='+String.fromCharCode(i)+"_"+j+'  style="font-size:12px; color:red;" isSelect="0">check_box_outline_blank</i></label></td>';
-		            else
-		                a=a+' <td class="py-0 px-0" ><label class="checkbox-inline px-0"><i class="material-icons selectseat" tag='+String.fromCharCode(i)+"_"+j+' style="font-size:12px; cursor:pointer;" isSelect="0">check_box_outline_blank</i></label></td>';	
-		                dem=dem+1;
-		        		}
-		        	
-		    }
-		    $('<tr style="font-size:12px;"><th scope="row" class="py-0" width="30">'+String.fromCharCode(i)+'</th>'+a+'</tr>').appendTo($("#bodybookingseat"));
-		    a="";
-		    }   
+		   if(dsGheChon.length==tongGhe)
+			   {
+			   alert("Hết ghế trống mời bạn quay lại sau");
+			   var i=2;
+               var interval_obj = setInterval(function(){
+                  i=i-1;
+                 if(i==0)
+                 {
+              	   window.location.href = "${pageContext.request.contextPath}";
+              	   clearInterval(interval_obj);
+                 }
+                  
+                  
+               },1000);
+              
+			   }
+		   else
+			   {
+			   
+			   for(var i=0;i<soCot;i++)
+			    {
+			        a=a+'<th scope="col" class="border-0  px-0 py-0" width="30">'+i+'</th>'
+			    }
+			    $('<tr style="font-size:12px;">'+a+'</tr>').appendTo($("#headerbookingseat"));
+			    a="";
+			    var id="";
+			    var idTmp="";
+			    for(var i=65;i<65+soHang;i++)
+			    {
+			    	id=String.fromCharCode(i)+"_";
+			    	tmp=id;
+			        for(var j=0;j<soCot;j++)
+			    {
+			        	if(dem==tongGhe)
+			        		{
+			        		return;
+			        		}
+			        	else
+			        		{
+			        		id=tmp+j;
+			            	if(dsGheChon.includes(id))
+			            a=a+' <td class="py-0 px-0 " ><label class="checkbox-inline px-0"><i class="material-icons selectseat" tag='+String.fromCharCode(i)+"_"+j+'  style="font-size:12px; color:red;" isSelect="0">check_box_outline_blank</i></label></td>';
+			            else
+			                a=a+' <td class="py-0 px-0" ><label class="checkbox-inline px-0"><i class="material-icons selectseat" tag='+String.fromCharCode(i)+"_"+j+' style="font-size:12px; cursor:pointer;" isSelect="0">check_box_outline_blank</i></label></td>';	
+			                dem=dem+1;
+			        		}
+			        	
+			    }
+			    $('<tr style="font-size:12px;"><th scope="row" class="py-0" width="30">'+String.fromCharCode(i)+'</th>'+a+'</tr>').appendTo($("#bodybookingseat"));
+			    a="";
+			    }   
+			   }
+		  
 	}
 	function load(tenFilm,ngayXemPhim)
 	{

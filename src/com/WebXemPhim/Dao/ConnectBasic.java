@@ -22,5 +22,6 @@ public class ConnectBasic {
 	public static void init() throws ClassNotFoundException, SQLException {
 		conn = ConectionUtils.getSqlConnect();
 	}
+	
 
 }

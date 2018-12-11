@@ -75,5 +75,22 @@ public class GheDao extends ConnectBasic {
 		return idGhe;
 		
 	}
+	public static boolean insertGhe(String idGhe,String hang,int soGhe,int idPhongChieu)
+
+	{
+		String sql="insert into Ghe values(?,?,?,?)";
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setString(1, idGhe);
+			ps.setString(2, hang);
+			ps.setInt(3,soGhe );
+			ps.setInt(4, idPhongChieu);
+			return ps.executeUpdate() == 1;
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		;
+		return false;
+	}
 
 }

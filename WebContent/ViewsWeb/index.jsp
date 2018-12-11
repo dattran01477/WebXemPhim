@@ -103,23 +103,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 <script type="text/javascript">
 	$(window).resize(function() {
-		var width = $("#AreaImageFilmHot").width();
+		/* var width = $("#AreaImageFilmHot").width();
 		var height = $("#AreaImageFilmHot").height();
 		var image = $("#ImageFilmHot");
 		image.height(width / 3 * 2.1);
 		image.width(width);
-
+ */
 		var widthImgFilmDang = $(".FilmDangChieu").width();
 		var imageFilmDangChieu = $(".FilmDangChieu");
 		imageFilmDangChieu.height(widthImgFilmDang * 1.5);
 
 	});
 	$(document).ready(function() {
-		var width = $("#AreaImageFilmHot").width();
+		/* var width = $("#AreaImageFilmHot").width();
 		var height = $("#AreaImageFilmHot").height();
 		var image = $("#ImageFilmHot");
 		image.height(width / 3 * 2);
-		image.width(width);
+		image.width(width); */
 
 		var widthImgFilmDang = $(".FilmDangChieu").width();
 		var imageFilmDangChieu = $(".FilmDangChieu");

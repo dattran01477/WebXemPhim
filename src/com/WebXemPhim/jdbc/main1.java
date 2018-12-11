@@ -55,7 +55,7 @@ public class main1 extends ConnectBasic {
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}*/
-		SimpleDateFormat sdf1 = new SimpleDateFormat("hh:mm");
+	/*	SimpleDateFormat sdf1 = new SimpleDateFormat("hh:mm");
 		java.util.Date  dateTemp1 = null;
 		try {
 			dateTemp1 = sdf1.parse("20:30");
@@ -65,11 +65,15 @@ public class main1 extends ConnectBasic {
 			e.printStackTrace();
 		}
 		java.sql.Time sqltime = new java.sql.Time(dateTemp1.getTime());
-		XuatChieuDao.addXuatChieu(2,6,sqltime);
+		XuatChieuDao.addXuatChieu(2,6,sqltime);*/
+//		char a='A';
+//		for(int i=0;i<26;i++)
+//		{
+//			String b=String.valueOf((char)(a+i));
+//			System.out.println(b);
+//		}
 		
-
-	
-
+		System.out.println(PhongChieuDao.getPhongChieu(21).getTenPhongChieu());
 	}
 	static Connection conn;
 	static {
