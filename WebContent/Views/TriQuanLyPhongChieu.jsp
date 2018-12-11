@@ -120,7 +120,7 @@
 												href="${pageContext.request.contextPath}/Views/TriUpdatePhongChieu.jsp?command=update&id=<%=c.getIdPhongChieu()%>
 												&name=<%=c.getTenPhongChieu()%>&tenRapChieu=<%=c.getTenRapChieu()%>"
 												class="btn btn-warning"><i class="fa fa-edit"></i></a> <a
-												href="${pageContext.request.contextPath}/RapChieuServlet?command=delete&id=<%=c.getIdPhongChieu()%>"
+												href="${pageContext.request.contextPath}/PhongChieu?command=delete&id=<%=c.getIdPhongChieu()%>"
 												class="btn btn-danger"> <i class="fa fa-trash"></i></a>
 											</td>
 										</tr>

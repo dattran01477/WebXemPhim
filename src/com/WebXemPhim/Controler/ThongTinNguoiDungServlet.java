@@ -1,4 +1,4 @@
-package com.WebXemPhim.Controler;
+  package com.WebXemPhim.Controler;
 
 import java.io.IOException;
 
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.WebXemPhim.Dao.SoDuTaiKhoanDao;
+import com.WebXemPhim.Dao.UserAccountDao;
 import com.WebXemPhim.model.UserAccount;
 
 /**
@@ -31,6 +32,8 @@ public class ThongTinNguoiDungServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		UserAccount user=(UserAccount) request.getSession().getAttribute("loginedUser");
 		int idTk=user.getId_Account();
 		int soDu=SoDuTaiKhoanDao.getSoDuTk(idTk);
@@ -46,7 +49,20 @@ public class ThongTinNguoiDungServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		String id=request.getParameter("id");
+		String ten=request.getParameter("ten");
+		String gioiTinh=request.getParameter("gioiTinh");
+		String email=request.getParameter("email");
+		String pass=request.getParameter("pass");
+		String diaChi=request.getParameter("diaChi");
+		System.out.println(ten+gioiTinh+email+pass+diaChi+id);
+		UserAccountDao.updateTaiKhoan(Integer.parseInt(id), ten, pass, gioiTinh, email, diaChi);
+		//Load lai Servlet ListAllStudent
+		String contextPath=request.getContextPath();
+		response.sendRedirect(contextPath+"/TrangQuanLy");
+		
 	}
 
 }

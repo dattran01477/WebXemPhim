@@ -16,7 +16,7 @@ public class ConectionUtils {
 		 String hostName = "localhost";
 	     String sqlInstanceName = "SQLEXPRESS";
 	     String database = "MovieTheater";
-	     String userName = "Thanhvien";
+	     String userName = "nhom";
 	     String password = "123";
 	 
 	     return getSqlConnect(hostName, sqlInstanceName,
