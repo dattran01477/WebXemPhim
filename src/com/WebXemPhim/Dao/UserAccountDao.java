@@ -15,6 +15,8 @@ import com.WebXemPhim.model.Category;
 import com.WebXemPhim.model.Film;
 import com.WebXemPhim.model.UserAccount;
 
+
+
 public  class UserAccountDao extends ConnectBasic{
 	
 	private static final Map<String,UserAccount> mapUsers=new HashMap<String,UserAccount>();
@@ -126,7 +128,31 @@ public  class UserAccountDao extends ConnectBasic{
 		}
 		 return soDu;
 	 }
-	/* public static bool updateInfoAccount(int idTk,String matKhau,Strin)*/
+	 public static boolean updateTaiKhoan(int id,String hoTen,String matKhau,String gioiTinh,String email,String diaChi)
+		{
+			String sql = "update taiKhoan set hoTen=?,matKhau=?,gioiTinh=?,email=?,diaChi=? where id_TaiKhoan= ?";
+			
+		
+
+			try {
+				
+				java.sql.Statement statement = conn.createStatement();
+				PreparedStatement pre=conn.prepareStatement(sql);
+				pre.setString(1,hoTen);
+				pre.setString(2,matKhau);
+				pre.setString(3,gioiTinh);
+				pre.setString(4,email);
+				pre.setString(5,diaChi);
+				pre.setInt(6, id);
+			
+				 return pre.executeUpdate()==1;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return false;
+
+		}
 	
 
 }

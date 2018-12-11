@@ -28,7 +28,8 @@ public class TriDanhMucPhimServlet extends HttpServlet {
 			switch(command) {
 			case "delete":
 				CategoryFilm.deleteDanhMucPhim((Integer.parseInt(id)));
-				url = "/Views/TriDanhMucFilm.jsp";
+				String contextPath=request.getContextPath();
+				response.sendRedirect(contextPath+"/TrangQuanLy");
 				break;
 			}
 
@@ -51,24 +52,25 @@ public class TriDanhMucPhimServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String url = "";
 
-
+		String contextPath;
 		try {
 			switch(command) {
 			case "update":
 				CategoryFilm.UpdateDanhMucPhim(Integer.parseInt(id),tenDanhMuc, moTa);
-					url = "/Views/TriDanhMucFilm.jsp";
+				 contextPath=request.getContextPath();
+				response.sendRedirect(contextPath+"/TrangQuanLy");
 					break;
 			case "insert":
 				CategoryFilm.InsertDanhMucPhim(tenDanhMuc, moTa);
-						url = "/Views/TriDanhMucFilm.jsp";
+				 contextPath=request.getContextPath();
+				response.sendRedirect(contextPath+"/TrangQuanLy");
 						break;
 		
 			}
 		} catch (Exception ex) {
 
 		}
-		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-		rd.forward(request, response);
+		
 
 	}
 

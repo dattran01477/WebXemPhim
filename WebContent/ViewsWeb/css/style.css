@@ -8,19 +8,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     font-family: SignPainter;
     src:url("../Font/SVN-Sign Painter House Script.otf");
 }
-@font-face { font-family: cuccho; src: url("../Font/Cucho Bold.otf"); } 
+
 body{
 	padding:0;
 	margin:0;
 	font-family: 'Open Sans', sans-serif;
 	background:#fff;
 }
-.titleFilm{
-	font-size:30px;
-	font-family: cuccho, sans-serif;
-	color: black;
-	font-weight: bold;
-}	
+	
 body a{
     transition:0.5s all;
 	-webkit-transition:0.5s all;
