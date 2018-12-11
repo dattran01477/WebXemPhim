@@ -3,6 +3,8 @@ package com.WebXemPhim.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.WebXemPhim.Dao.SoDuTaiKhoanDao;
+
 public class UserAccount {
 	public UserAccount() {
 	}
@@ -85,6 +87,7 @@ public class UserAccount {
 	}
 	public void setId_Account(int id_Account) {
 		this.id_Account = id_Account;
+		this.setSoDuTK(SoDuTaiKhoanDao.getSoDuTk(id_Account));
 	}
 	public String getEmail() {
 		return email;

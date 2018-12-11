@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="header shadow  mb-5  rounded">
+<div class="shadow  mb-5  rounded">
 
 	<div class="row mx-0 justify-content-center" style=" background-image:
 		url(${flimHot.url_Image}); background-position:center; background-size: 100% 100%">
@@ -9,7 +9,7 @@
 		<div class="col-md-3" style="background-color: #4D4B4B;opacity: 0.85">
 			<div class="header-info ">
 				<div class="">
-					<h1 style="text-align: center;">${flimHot.tieuDe}</h1>
+					<h2 style="text-align: center; font-weight: bold" class="text-light">${flimHot.tieuDe}</h2>
 					<p class="age">
 						<a href="#">All Age</a>${flimHot.dienVien}</p>
 					<p class="review">Rating
@@ -36,7 +36,7 @@
 					class="material-icons float-left" style="font-size: 28px">developer_board</i><span
 					class="">Đặt Vé</span></a>
 				<!--Model đặt vé-->
-				<%@include file="modalDatVe.jsp"%>
+				
 				<!--End modal-->
 			</div>
 
@@ -49,10 +49,11 @@
 		</div>
 	</div>
 </div>
-<div class="review-slider">
+<%@include file="modalDatVe.jsp"%>
+<div class="review-slider border-top">
 
-	<div class="home-title mb-3">
-		<h2>movie selection</h2>
+	<div class="row justify-content-center my-3 border-bottom">
+		<h1 class="titleFilm border-bottom">Phim Đang Chiếu</h1>
 	</div>
 	<ul id="flexiselDemo1">
 		<c:forEach items="${flimsDangChieu}" var="Film">
@@ -139,7 +140,8 @@
 				</div>
 				<div class="clearfix"></div>
 			</div> -->
-<div class="more-reviews">
+<div class="more-reviews border-top ">
+	<div class="row justify-content-center my-3 border-bottom"><h1 class="titleFilm ">Phim Sắp Chiếu</h1></div>
 	<ul id="flexiselDemo2">
 		<c:forEach items="${filmsChuanBiChieu}" var="Film">
 			<li class="container"><img src="${Film.url_Image}" alt="" />
