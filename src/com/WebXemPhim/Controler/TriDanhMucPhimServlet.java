@@ -29,8 +29,9 @@ public class TriDanhMucPhimServlet extends HttpServlet {
 			case "delete":
 				CategoryFilm.deleteDanhMucPhim((Integer.parseInt(id)));
 				String contextPath=request.getContextPath();
-				response.sendRedirect(contextPath+"/TrangQuanLy");
+				url="/TrangQuanLy";
 				break;
+				
 			}
 
 		} catch (Exception ex) {
@@ -39,6 +40,7 @@ public class TriDanhMucPhimServlet extends HttpServlet {
 		}
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 		rd.forward(request, response);
+		
 
 	}
 

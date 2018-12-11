@@ -27,9 +27,9 @@
 						&nbsp;${film.doDai} phút</p>
 
 					<div class="col-12 my-2 col-md-6 mr-auto px-0">
-						<a href="#" tag="${flimHot.id}"
+						<a href="#" tag="${params.idFilm}"
 							class="btn btn-warning sizeBtn btnDatVe  py-auto"
-							tag="${flimHot.id}" data-toggle="modal"
+							 data-toggle="modal"
 							data-target="#exampleModalLong"><i
 							class="material-icons float-left" style="font-size: 28px">developer_board</i><span
 							class="">Đặt Vé</span></a>
@@ -220,6 +220,7 @@
 		</div> -->
 		<div class="clearfix"></div>
 	</div>
+	<%@include file="modalDatVe.jsp"%>
 </div>
 <script>
 var getUrlParameter = function (sParam) {

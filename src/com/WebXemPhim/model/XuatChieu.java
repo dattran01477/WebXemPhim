@@ -3,6 +3,9 @@ package com.WebXemPhim.model;
 
 import java.sql.Time;
 
+import com.WebXemPhim.Dao.FilmDao;
+import com.WebXemPhim.Dao.PhongChieuDao;
+
 public class XuatChieu {
 
 	public int getId() {
@@ -12,6 +15,28 @@ public class XuatChieu {
 
 	public void setId(int id) {
 		this.id = id;
+		
+	}
+	private Film phim;
+
+	public Film getPhim() {
+		return phim;
+	}
+
+
+	public void setPhim(Film phim) {
+		this.phim = phim;
+	}
+	private PhongChieu phongchieu;
+
+
+	public PhongChieu getPhongchieu() {
+		return phongchieu;
+	}
+
+
+	public void setPhongchieu(PhongChieu phongchieu) {
+		this.phongchieu = phongchieu;
 	}
 
 
@@ -22,6 +47,7 @@ public class XuatChieu {
 
 	public void setId_Phim(int id_Phim) {
 		this.id_Phim = id_Phim;
+		this.phim=FilmDao.getFilm(id_Phim);
 	}
 
 
@@ -32,6 +58,7 @@ public class XuatChieu {
 
 	public void setId_PhongChieu(int id_PhongChieu) {
 		this.id_PhongChieu = id_PhongChieu;
+		this.phongchieu=PhongChieuDao.getPhongChieu(id_PhongChieu);
 	}
 
 

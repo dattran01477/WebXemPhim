@@ -19,15 +19,15 @@
 			<ul class="navbar-nav text-right">
 			<li class="nav-item  border-right"><a class="nav-link" href="${pageContext.request.contextPath}/ViewsWeb/GioiThieu.jsp">Giới Thiệu</a></li>
 				<c:if test="${not empty loginedUser}">	
-					<c:forEach items="${loginedUser.roles}" var="role">
+					
 							<li class="nav-item  border-right"><a class="nav-link" href="${pageContext.request.contextPath}/TrangQuanLy">Quản Lý</a></li>
-					</c:forEach>
-					<li class="nav-item  "><a class="nav-link" href="Logout">Đăng
+					
+					<li class="nav-item  "><a class="nav-link" href="${pageContext.request.contextPath}/Logout">Đăng
 							Xuất</a></li>
 							<span style="font-size: 10px; color: #D8D90A">${loginedUser.user} | số dư  ${loginedUser.soDuTK}  </span>
 				</c:if>
 				<c:if test="${empty loginedUser}">
-					<li class="nav-item  border-right"><a class="nav-link" href="Login">Đăng
+					<li class="nav-item  border-right"><a class="nav-link" href="${pageContext.request.contextPath}/Login">Đăng
 							Nhập</a></li>
 							
 					<li class="nav-item  border-right"><a class="nav-link" href="${pageContext.request.contextPath}/ViewsWeb/DangKiTK.jsp">Đăng

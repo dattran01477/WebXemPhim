@@ -139,12 +139,15 @@ public class CategoryFilm extends ConnectBasic {
 		
 	}
 	public static boolean InsertDanhMucPhim(String tenDanhMuc, String moTa) {
-		String sql="Exec dbo.InsertMenuFilm ?,? ";
+		String sql="insert into DanhMucPhim values(?,?)";
 		try {
 			PreparedStatement ps=conn.prepareCall(sql);
 			
 			ps.setString(1, tenDanhMuc);
 			ps.setString(2,moTa);
+			ps.execute(); 
+			System.out.println("ThanhCong");
+				return true;
 			
 		}
 		catch(SQLException ex) {

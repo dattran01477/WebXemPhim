@@ -72,7 +72,7 @@
 							<tr>
 								<th scope="col" class="border-0">Mã Xuất Chiếu</th>
 								<th scope="col" class="border-0">Tên Phim</th>
-								<th scope="col" class="border-0">Rạp Chiếu</th>
+								<th scope="col" class="border-0">Phòng Chiếu</th>
 								<th scope="col" class="border-0">Thời Gian Bắt Đầu</th>
 								<th scope="col" class="border-0">Tùy Chọn</th>
 							</tr>
@@ -166,14 +166,14 @@
 																	"<tr> <td>"
 																			+ el.id
 																			+ "</td><td>"
-																			+ el.id_Phim
+																			+ el.phim.tieuDe
 																			+ "</td><td>"
-																			+ el.id_RapChieu
+																			+ el.phongchieu.tenPhongChieu
 																			+ "</td><td>"
-																			+ el.thoiGianChieu
+																			+ el.gioChieu
 																			+ "</td><td>"
-																			+ "<a href='#'><i class='fa fa-edit mr-3' style='font-size:24px'></i></a>"
-																			+ "<a href='#'><i class='fa fa-trash mr-3' style='font-size:24px'></i></a>"
+																			+ "<a href='${pageContext.request.contextPath}/XuatChieu?command=update&id="+el.id+"'><i class='fa fa-edit mr-3' style='font-size:24px'></i></a>"
+																			+ "<a href='${pageContext.request.contextPath}/XuatChieu?command=delete&id="+el.id+"'><i class='fa fa-trash mr-3' style='font-size:24px'></i></a>"
 																			+ "</td>"
 																			+
 
@@ -184,6 +184,7 @@
 									}
 								});
 						$("#btnThemLichChieu").click(function(event) {
+							$('#myModal').modal('toggle'); 
 						    var tenRapChieu = $("#sel_RapChieu").val();
 						    var tenPhongChieu = $("#sel_PhongChieu").val();
 						    var tenPhim = $("#sel_Phim").val();
@@ -204,7 +205,7 @@
 						                var obj = $.parseJSON(data);
 						               if(data=="1")
 						               {
-						                alert("Thêm xuất chiếu thành công");
+						               
 						                $("#main_pn")
 										.load(
 												"${pageContext.request.contextPath}/Views/MainQuanLyLichChieu.jsp");
