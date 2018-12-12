@@ -73,6 +73,9 @@
 							<li class="nav-item" id="proFile"><a class="nav-link "
 							href="#"> <i class="material-icons">edit</i> <span>Thông
 									Tin Cá Nhân</span>
+										<li class="nav-item" id="mnNapXuCu"><a class="nav-link "
+							href="#"> <i class="material-icons">vertical_split</i> <span>Nạp Xu</span>
+						</a></li>
 						</a></li>
 						</c:if>
 						 <c:if test = "${role eq 'ad'}">
@@ -308,6 +311,14 @@
 									});
 							
 							
+							$("#mnNapXuCu")
+							.click(
+									function() {
+
+										$("#main_pn")
+												.load(
+														"${pageContext.request.contextPath}/Views/MainNapXuCu.jsp");
+									});
 							
 							
 							$("#mnCategoryFilm")

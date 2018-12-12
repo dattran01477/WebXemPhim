@@ -53,6 +53,7 @@ public class DatVeServlet extends HttpServlet {
 		request.setAttribute("tenPhim",FilmDao.getTenPhim(idFilm));
 		request.setAttribute("idFilm", idFilm);
 		request.setAttribute("idXC", idXC);
+		request.setAttribute("soTien", FilmDao.getFilm(idFilm).getGiaVe());
 		
 		
 		 RequestDispatcher dispatcher //

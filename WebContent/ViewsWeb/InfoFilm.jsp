@@ -9,6 +9,8 @@
 <link
 	href="${pageContext.request.contextPath}/ViewsWeb/css/bootstrap.css"
 	rel='stylesheet' type='text/css' />
+	<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Custom Theme files -->
 <link href="${pageContext.request.contextPath}/ViewsWeb/css/style.css"
 	rel="stylesheet" type="text/css" media="all" />
@@ -54,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="main col-md-12 col-lg-12 col-12 px-0">
 							<%@include file="Header.jsp"%>
 							<%@include file="InfoInclude.jsp"%>
-							<%-- 	<%@include file="Footer.jsp" %> --%>
+								<%@include file="Footer.jsp"%>
 						</div>
 					</div>
 				</div>

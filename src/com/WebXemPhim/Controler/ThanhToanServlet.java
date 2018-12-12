@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import com.WebXemPhim.AppUtils.AppUtils;
@@ -45,6 +46,8 @@ public class ThanhToanServlet extends HttpServlet {
 	 */
 	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
+		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");  
 		UserAccount loginedUser = (UserAccount)request.getSession().getAttribute("loginedUser");
 		response.setContentType("text/html; charset=UTF-8");
@@ -88,6 +91,7 @@ public class ThanhToanServlet extends HttpServlet {
 			int idDatVe=ChiTietDatVeDao.themChiTietDatVe(idXC, idTK, tongGia, 0, "", currentSqlDate, sqlDate2, sdtDatVe);
 			if(idDatVe!=-1 &&isSub==true)
 			{
+				session.setAttribute("idDatVe", idDatVe);
 				int kt=0;
 				for(String w:arraySelectSeats)
 				{

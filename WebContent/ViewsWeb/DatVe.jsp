@@ -21,6 +21,8 @@
 	src="${pageContext.request.contextPath}/ViewsWeb/js/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js"
 	type="text/javascript"></script>
 <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css"
@@ -39,10 +41,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
     addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 
     function hideURLbar() { window.scrollTo(0, 1); }
     
+
 
 
 
@@ -109,15 +113,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<div class="card-body">
 												<h4 class="card-title border-bottom text-center"
-													style="color: #D88A04;">Thông tin thanh toán</h4>
+													style="color: #D88A04;">Thông tin thanh toán Phim</h4>
 												<div class="col">
 													<div class="border-bottom py-5">
-														<div class="row">
-															<div class="col-md-5 col-5 " style="color: #D88A04;">
-																<h5 class="mr-auto">Tên Phim:</h5>
-															</div>
+														<div class="row my-2 py-3 border-bottom">
+														
 															<div class="text-center">
-																<h5 id="tenPhim"></h5>
+																<h5 id="tenPhim" style="font-weight: bold;"></h5>
+															</div>
+															<div class="col-md-5 col-5 " style="color: #D88A04;">
+																<h5 class="mr-auto">Giá Vé:</h5>
+															</div>
+															<div class="text-center  ">
+																<h5 id="giaVe"></h5> 
 															</div>
 														</div>
 														<div class="row">
@@ -173,13 +181,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<div class=""></div>
 						</div>
+					
 					</div>
+					
 				</div>
 			</div>
 		</div>
 	</div>
+<%@include file="Footer.jsp"%>
+	<div class="modal fade" id="exampleModalLong" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLongTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
 
-
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title " id="exampleModalLabel">Bạn có chắc
+						chắn đặt các vé sau không!</h2>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button id="btnXacNhan" type="button"  class="btn btn-primary">Xác nhận</button>
+			</div>
+		</div>
+	</div>
+	</div>
 
 	<script type="text/javascript">
 	function removeFromArray(array, item, index) {
@@ -239,7 +271,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        		{
 			        		id=tmp+j;
 			            	if(dsGheChon.includes(id))
-			            a=a+' <td class="py-0 px-0 " ><label class="checkbox-inline px-0"><i class="material-icons selectseat" tag='+String.fromCharCode(i)+"_"+j+'  style="font-size:12px; color:red;" isSelect="0">check_box_outline_blank</i></label></td>';
+			            a=a+' <td class="py-0 px-0 " ><label class="checkbox-inline px-0"><i class="material-icons selectseat" tag='+String.fromCharCode(i)+"_"+j+'  style="font-size:12px; background-color:red; disabled" isSelect="0">check_box_outline_blank</i></label></td>';
 			            else
 			                a=a+' <td class="py-0 px-0" ><label class="checkbox-inline px-0"><i class="material-icons selectseat" tag='+String.fromCharCode(i)+"_"+j+' style="font-size:12px; cursor:pointer;" isSelect="0">check_box_outline_blank</i></label></td>';	
 			                dem=dem+1;
@@ -252,10 +284,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   }
 		  
 	}
-	function load(tenFilm,ngayXemPhim)
+	function load(tenFilm,ngayXemPhim,giaTien)
 	{
 		$("#tenPhim").append(tenFilm);
 		$("#ngayXemPhim").append(ngayXemPhim);
+		$("#giaVe").append(giaTien+" VND");
 	}
 	$(document).ready(function() {
 		loadSeat();
@@ -268,14 +301,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		var tenFilm='${tenPhim}';
 		var ngayXemPhim='${ngayXemPhim}';
 		var idFilm=${idFilm};
-		load(tenFilm,ngayXemPhim);
+		load(tenFilm,ngayXemPhim,giaTien);
 		$(".selectseat").click(function(event) {
 			if($(this).attr("isSelect")=="0")
     		{
 			
 			$("#maGhe").empty();
 			$("#tongGia").empty();
-    		$(this).css("color", "#00FE00");
+    		$(this).css("background-color", "#00FE00");
     		arraySelectSeat.push($(this).attr("tag"));
     		for (var i = 0; i < arraySelectSeat.length; i++)
     			{
@@ -292,7 +325,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     		{
     			$("#maGhe").empty();
     			$("#tongGia").empty();
-    		$(this).css("color", "black");
+    		$(this).css("background-color", "transparent");
     		removeFromArray(arraySelectSeat,$(this).attr("tag"));
     		for (var i = 0; i < arraySelectSeat.length; i++)
 			{
@@ -305,10 +338,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     		$(this).attr("isSelect","0");
     		}    	
 			});
+	/* 	$("#btnThanhToan").click(function(event){
+			
+			$("#exampleModalLong").modal();
+			
+		}); */
 		$("#btnThanhToan").click(function(event) {
 			 $.ajax({
                  url: '${pageContext.request.contextPath}/ThanhToan',
-                 
                  data: {idFilm:idFilm,arraySelectSeat:arraySelectSeat,tongTien:tongTien,ngayXemPhim:ngayXemPhim,idXC:idXC,sdtDatVe:$("#sdtDatVe").val()},
                  dataType:"html",
                  success:function(data){
@@ -337,7 +374,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 		}
                 	else
                 		{
-                		alert("số dư không đủ xin vui lòng nạp thêm tiền")
+                		alert("số dư không đủ xin vui lòng nạp thêm tiền");
                 		}
                 	
                  //End loop khủng khiếp!
