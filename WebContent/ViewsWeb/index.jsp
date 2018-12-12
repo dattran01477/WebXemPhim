@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Custom Theme files -->
-<script src="${pageContext.request.contextPath}/ViewsWeb/js/snake-js.js" type="text/javascript"></script>
+
 <link href="${pageContext.request.contextPath}/ViewsWeb/css/style.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"

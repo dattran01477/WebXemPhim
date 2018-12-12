@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 
-<h1>Chúc Quý Khách Một Ngày Đầy Vui Vẻ</h1>
+<h1>Chúc Quý Khách Một Ng</h1>
 
 <div id="parent"></div>
 
