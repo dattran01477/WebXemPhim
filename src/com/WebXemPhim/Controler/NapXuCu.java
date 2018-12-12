@@ -32,30 +32,39 @@ public class NapXuCu extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String codeDefault="napthoaimai2018";
+		
 		// TODO Auto-generated method stub
 		HttpSession sess=request.getSession();
 		UserAccount user=(UserAccount) sess.getAttribute("loginedUser");
-		String maCode=request.getParameter("maCode");
+		String maCode=(String)request.getParameter("maCode");
 		int slXu=Integer.parseInt(request.getParameter("slXu"));
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out=response.getWriter();
-		boolean isSuccess = false;
-		if(maCode=="napthoaimai2018")
-		{
-			
-			 isSuccess=SoDuTaiKhoanDao.NapXu(user.getUser(),slXu);
-		}
 		
-		if(isSuccess)
+		
+		
+		if(maCode.equals(codeDefault))
 		{
 			
-			out.print("Nạp Xu Thành Công");
+			boolean isSuccess  =SoDuTaiKhoanDao.NapXu(user.getUser(),slXu);
+				if(isSuccess)
+				{
+					
+					out.print("Nạp Xu Thành Công");
+				}
+				else
+				{
+					out.println("Nạp Xu Thất Bại");
+				}
 		}
 		else
 		{
-			out.println("Nạp Xu Thất Bại");
+			out.println("Mã Code Sai!");
 		}
+		
+	
 	}
 
 	/**
